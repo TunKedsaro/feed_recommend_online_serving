@@ -1,0 +1,17 @@
+# Python-generated files
+.pytest_cache/
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Environment variables
+.env
+
+secrets/poc-piloturl-nonprod-4c844768540d.json
+docs/secret_command.txt
