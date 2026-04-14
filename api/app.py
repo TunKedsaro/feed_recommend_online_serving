@@ -16,9 +16,9 @@ from modules.utils.performance_logging import (
 # app = FastAPI(title="Feeds Recommendation API DEV", version="1.1.0")
 
 app = FastAPI(
-    title="Feeds Recommendation API DEV",
-    version="1.1.0",
-    description="API for recommending personalized feeds based on student profile and fallback logic. 09/04 16:45"
+    title="Feeds Recommendation online serving API ",
+    version="1.0.0",
+    description="API for recommending personalized feeds based on student profile and fallback logic. 14/04/26 15:42"
 )
 
 API_VERSION_HEADER = "X-API-Version"
