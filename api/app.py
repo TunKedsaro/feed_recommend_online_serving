@@ -16,10 +16,22 @@ from modules.utils.performance_logging import (
 # app = FastAPI(title="Feeds Recommendation API DEV", version="1.1.0")
 
 app = FastAPI(
-    title="Feeds Recommendation online serving API ",
-    version="1.0.0",
-    description="API for recommending personalized feeds based on student profile and fallback logic. 14/04/26 15:42"
+    title="Feed recommentdation Online serving",
+    version="1.0.1",
+    description=(
+        "Feed recommendation Online serving part"
+        "<br>"
+        f"Last time Update : 2026-04-14 19:25"
+        "<br>"
+        "Repo : https://github.com/TunKedsaro/feed_recommend_online_serving"
+    ),
+    contact={
+        "name": "Tun Kedsaro",
+        "email": "tun.k@terradigitalventures.com",
+        
+    },
 )
+
 
 API_VERSION_HEADER = "X-API-Version"
 CORRELATION_ID_HEADER = "X-Correlation-Id"

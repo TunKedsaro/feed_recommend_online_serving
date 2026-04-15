@@ -36,7 +36,7 @@ steps:
 
 substitutions:
   _REGION: "asia-southeast1"
-  _REPO_NAME: "online-serving-feeds-api-dev"
+  _REPO_NAME: "feed-recommend-online-serving"
   _VPC_CONNECTOR_NAME: "redis-test-connector"
   _SA_NAME: "test-result-data-api-sa"
   _REDIS_HOST: "10.86.221.99"
