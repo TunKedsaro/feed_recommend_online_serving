@@ -80,6 +80,7 @@ class VectorSearchClient:
 # main function: trigger hyde generation of student
 # ---------------------------------------------------------------------------------------------
     def search(self, embeddings: list[list[float]], restricts: list[Any] | None = None) -> list[dict[str, Any]]:
+        print(f"Position : vector_search.py/class VectorSearchClient/def search")
         """
         Performs a vector search using the Vertex AI Matching Engine.
         """
@@ -102,5 +103,6 @@ class VectorSearchClient:
 
         # The neighbors object is a list of lists of Neighbor objects. Each Neighbor has attributes like id and distance.
         result = [{"feed_id": n.id, "score": float(n.distance)} for group in neighbors for n in group if n.id and n.distance is not None]
+        # print(f"result : {result}\n")
             
         return result

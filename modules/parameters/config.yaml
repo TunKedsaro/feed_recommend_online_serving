@@ -10,14 +10,16 @@ cache:
   redis_timeout_seconds: 0.5
 
 hyde_data:
-  bucket: "hyde-datalake-feeds"
+  bucket: "hyde-datalake-feed-recommend"
   embedding_prefix: embedding
   query_prefix: hyde
   metadata_prefix: metadata
 
 vertex:
-  index_endpoint: "projects/810737581373/locations/asia-southeast1/indexEndpoints/6458557689835290624"
-  deployed_index_id: "feeds_20k_4replicas_deployed"
+  index_endpoint: "projects/810737581373/locations/asia-southeast1/indexEndpoints/5469929610697244672"
+  deployed_index_id: "recommend_feeds_items_deployed"
+  # index_endpoint: "projects/810737581373/locations/asia-southeast1/indexEndpoints/6458557689835290624"
+  # deployed_index_id: "feeds_20k_4replicas_deployed"
   neighbor_count: 50
   return_full_datapoint: false
   # restricts_list:

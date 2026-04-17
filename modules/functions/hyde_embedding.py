@@ -7,8 +7,10 @@ def pretty_json(payload):
     return json.dumps(payload, indent=2, ensure_ascii=False)
 
 class HydeEmbeddingStore:
-    HYDE_BUNDLE_BUCKET = "hyde-datalake-feeds"
+    HYDE_BUNDLE_BUCKET = "hyde-datalake-feed-recommend"
     HYDE_BUNDLE_FILENAME = "hyde_bundle.json"
+    # HYDE_BUNDLE_BUCKET = "hyde-datalake-feeds"
+    # HYDE_BUNDLE_FILENAME = "hyde_bundle.json"
 
     def __init__(
         self,
@@ -25,11 +27,14 @@ class HydeEmbeddingStore:
         return f"gs://{self.bucket}/{clean_student_id}/{self.HYDE_BUNDLE_FILENAME}"
 
     def _load_bundle(self, student_id: str) -> dict[str, Any]:
+        # print(f"_load_bundle ...")
         if not self.bucket or not student_id:
             return {}
 
         gcs_uri = self._build_bundle_gcs_uri(student_id)
+        # print(f"gcs_uri : {gcs_uri}")
         payload = load_json_from_gcs_uri(gcs_uri)
+        # print(f"payload : {payload}")
         # print(f"payload stu_p001 : {pretty_json(payload)}")
         return payload if isinstance(payload, dict) else {}
 

@@ -639,15 +639,15 @@ def load_user_interactions(interactions_path:str,*,student_id:str) -> pd.DataFra
 
 
 
-def load_feeds_meta_map(feed_ids: List[str],url_path:str) -> Dict[str, Dict[str, Any]]:
-    url = url_path
+def load_feeds_meta_map(feed_ids: List[str], url_path:str) -> Dict[str, Dict[str, Any]]:
+    # print(f"Position : calc_subscore.py/def load_feeds_meta_map")
+    # print(f"- url_path : {url_path}")
 
+    url = url_path
     feed_ids = [f"feeds:{feed_id}" for feed_id in feed_ids]
+    # print(f"- feeds_ids : {feed_ids}")
 
     payload = {"ids": feed_ids}
-
-    # print(payload)
-
     headers = {
         "accept": "application/json",
         "Content-Type": "application/json"
@@ -972,6 +972,7 @@ def calc_subscore(
     user_lang                              = 'th',
     return_debug                           = True 
 ):
+    # print(f"Position : calc_subscore.py/calc_subscore")
     # ----------------------------------------------------------------------
     # Main
     # pipeline_3_online_retrieval.py | def run_online_retrieval()
@@ -1059,10 +1060,10 @@ def calc_subscore(
         hyde_query    = hyde_query,
         max_candidate = max_candidates
     )
-    n = 0
-    for i, j in scored:
+    # n = 0
+    # for i, j in scored:
         # print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}")
-        n = n+1
+        # n = n+1
     timing_ms["vector_retrieval_ms"] = _ms(time.perf_counter() - t0)
     ### --------- Exclude seen feeds BEFORE max_candidates cap --------- ###
     t0 = time.perf_counter()
@@ -1089,10 +1090,10 @@ def calc_subscore(
     # Cap after filtering to preserve return up to N unseen candidates
     scored = scored[: int(max(0,max_candidates))]    # select only maximum candidate feed that possible
 
-    n = 0
-    for i, j in scored:
+    # n = 0
+    # for i, j in scored:
         # print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}")
-        n = n+1
+        # n = n+1
 
     timing_ms["exclude_seen_ms"] = _ms(time.perf_counter()-t0)
 
@@ -1103,7 +1104,7 @@ def calc_subscore(
         feed_ids = never_seen,
         url_path = load_feeds_meta_map_path
         )
-    # print(f"feeds_meta_map : \n{prettyjson(feeds_meta_map)}")
+    # print(f"- feeds_meta_map : \n{prettyjson(feeds_meta_map)}")
 
 
     #########################################################

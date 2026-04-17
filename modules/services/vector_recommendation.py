@@ -16,7 +16,7 @@ def search_neighbors_async(
     vector_search: VectorSearchClient,
 ) -> tuple[list[list[dict[str, Any]]], list[int]]:
     """Search neighbors asynchronously, falling back to sync when needed."""
-
+    print(f"vector_recommendation.py/search_neighbors_async")
     async def _run() -> list[list[dict[str, Any]]]:
         tasks = [
             asyncio.to_thread(vector_search.search, [embedding])
@@ -52,6 +52,10 @@ def rerank_neighbors(
     *,
     embedding_store: HydeEmbeddingStore,
 ) -> list[RerankItem]:
+    # print(f"Position : vector_recommendation.py/def rerank_neighbors")
+    # print(f"student_id : {student_id}")
+    # print(f"search_results : {search_results}")
+    # print(f"embedding_store : {embedding_store}")
     """Rerank search results with deterministic sub-scoring."""
     score_matrix: list[list[float]] = []
     feed_matrix: list[list[str]] = []

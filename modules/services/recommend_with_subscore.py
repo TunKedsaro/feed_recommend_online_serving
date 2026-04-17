@@ -17,6 +17,11 @@ def rerank_with_subscore(
     feed_matrix: list[list[str]],
     embedding_store: HydeEmbeddingStore,
 ) -> list[RerankItem]:
+    print(f"Position : recommend_with_subscore.py/def rerank_with_subscore")
+    # print(f"- student_id : {student_id}")
+    # print(f"- score_matrix : {score_matrix}")
+    # print(f"- feed_matrix : {feed_matrix}")
+    # print(f"- embedding_store : {embedding_store}")
     """
     Compute reranked feed candidates by combining vector-search scores with subscore logic.
 
@@ -26,7 +31,9 @@ def rerank_with_subscore(
     
     ### ----------------- prep hyde & metadata for calc subscore ----------------- ###
     hyde_query = embedding_store.load_hyde_queries(student_id)
+    # print(f"- hyde_query : {hyde_query}")
     metadata = embedding_store.load_metadata(student_id)
+    # print(f"- metadata : {metadata}")
 
     ### ------------------------- calc subscore w/o hyde ------------------------- ###
     if not hyde_query or not score_matrix or not feed_matrix:

@@ -289,6 +289,7 @@ class RecommendationService:
         student_id: str,
         embeddings: list[list[float]],
     ) -> tuple[RecommendationResponse, float, PostprocessTimings, list[int]]:
+        # print(f"Position : recommend_feeds.py/class RecommendationService/def _build_vector_response")
         """Build a recommendation response using vector search results."""
 
         ### ------------------------------------ async vector search ------------------------------------ ###
@@ -297,8 +298,8 @@ class RecommendationService:
             embeddings,
             vector_search=self.vector_search,
         )
-        # print(f"search_results : {search_results}")
-        # print(f"num_recommendations : {num_recommendations}")
+        # print(f"- search_results : {search_results}")
+        # print(f"- num_recommendations : {num_recommendations}")
 
         t_vector_search = time.perf_counter() - search_started
 
