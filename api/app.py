@@ -17,11 +17,11 @@ from modules.utils.performance_logging import (
 
 app = FastAPI(
     title="Feed recommentdation Online serving",
-    version="1.0.2",
+    version="1.1.0",
     description=(
         "Feed recommendation Online serving part"
         "<br>"
-        f"Last time Update : 2026-04-14 19:25"
+        f"Last time Update : 2026-04-18 15:58"
         "<br>"
         "Repo : https://github.com/TunKedsaro/feed_recommend_online_serving"
     ),

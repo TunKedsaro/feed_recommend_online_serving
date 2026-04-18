@@ -72,6 +72,7 @@ class RecommendationService:
     def __init__(self, settings: Settings) -> None:
         """Initialize the recommendation service with necessary clients and configurations."""
         self.settings = settings
+        self.verbose = 0
 
         self.redis_cache = RedisCache(
             host=self.settings.cache.redis_host,
@@ -117,7 +118,7 @@ class RecommendationService:
 
         cache_key = self._key(student_id)
         print("#"*100)
-        print(f"cache_key : {cache_key}")
+        print(f"- cache_key : {cache_key}") if self.verbose else None
 
         cache_started = time.perf_counter()
         ### --------------------- Attempt to retrieve cached response --------------------- ###
@@ -145,7 +146,7 @@ class RecommendationService:
 
         print(f"No cache found for {student_id}, retrieving embedding for vector search...")
         embeddings = self.embedding_store.load_embeddings(student_id)
-        # embeddings = None
+        # embeddings = None   # uncomement to check fallback system bigquery by local and cahce redis by online
         if embeddings:
             print(f"embedding shape: ({len(embeddings)}, {len(embeddings[0])})")
             print(f"embedding[0] : {embeddings[0][:5]}")
@@ -180,11 +181,11 @@ class RecommendationService:
                 student_id=student_id,
                 embeddings=embeddings,
             )
-            # print("*"*70)
-            # print(f"response            : {response}")
-            # print(f"t_vector_search     : {t_vector_search}")
-            # print(f"postprocess_timings : {postprocess_timings}")
-            # print(f"num_recommendations : {num_recommendations}")
+            print("*"*70) if self.verbose else None
+            print(f"- response            : {response}") if self.verbose else None
+            print(f"- t_vector_search     : {t_vector_search}") if self.verbose else None
+            print(f"- postprocess_timings : {postprocess_timings}") if self.verbose else None
+            print(f"- num_recommendations : {num_recommendations}") if self.verbose else None
 
             # Shin said "Don't use this part anymore"
             # minimum_recommendation = self.settings.recommendation.minimum_recommendation
@@ -289,7 +290,7 @@ class RecommendationService:
         student_id: str,
         embeddings: list[list[float]],
     ) -> tuple[RecommendationResponse, float, PostprocessTimings, list[int]]:
-        # print(f"Position : recommend_feeds.py/class RecommendationService/def _build_vector_response")
+        print(f"Position : recommend_feeds.py/class RecommendationService/def _build_vector_response") if self.verbose else None
         """Build a recommendation response using vector search results."""
 
         ### ------------------------------------ async vector search ------------------------------------ ###
@@ -298,8 +299,8 @@ class RecommendationService:
             embeddings,
             vector_search=self.vector_search,
         )
-        # print(f"- search_results : {search_results}")
-        # print(f"- num_recommendations : {num_recommendations}")
+        print(f"- search_results : {search_results}") if self.verbose else None
+        print(f"- num_recommendations : {num_recommendations}") if self.verbose else None
 
         t_vector_search = time.perf_counter() - search_started
 
@@ -358,6 +359,7 @@ class RecommendationService:
         student_id: str,
         trigger_refresh: bool,
     ) -> tuple[RecommendationResponse, PostprocessTimings]:
+        print(f"Position : recommend_feeds.py/class RecommendationService/def _build_fallback_response") if self.verbose else None
         """Build a recommendation response using fallback data, optionally triggering a refresh of the HyDE generation."""
         postprocess_timings = PostprocessTimings()
         fallback_prepare_started = time.perf_counter()
@@ -369,6 +371,7 @@ class RecommendationService:
         fallback_limit = self.settings.bigquery.fallback_limit
         fallback_source = "bigquery_fallback"
         feed_cache_keys = self.redis_cache.get_many_by_prefix("feeds")
+        print(f"- feed_cache_keys : {feed_cache_keys}") if self.verbose else None
 
         ### ----------------------- if there is metadata in cache, cache fallback ----------------------- ###
         if len(feed_cache_keys) >= fallback_limit:

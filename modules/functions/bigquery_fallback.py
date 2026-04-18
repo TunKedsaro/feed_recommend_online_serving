@@ -5,7 +5,7 @@ from google.cloud import bigquery
 from api.schema import FeedsMetadata
 from modules.utils.bigquery import query_sql
 
-
+verbose = 0
 # ---------------------------------------------------------------------------------------------
 # bigquery - fallback
 # ---------------------------------------------------------------------------------------------
@@ -14,6 +14,10 @@ def fetch_fallback_recommendations(
     fallback_table: str,
     fallback_limit: int,
 ) -> list[tuple[str, FeedsMetadata | None]]:
+    print(f"Position : bigquery_fallback.py/def fetch_fallback_recommendations") if verbose else None
+    print(f"bigquery_client : {bigquery_client}") if verbose else None
+    print(f"fallback_table : {fallback_table}") if verbose else None
+    print(f"fallback_limit : {fallback_limit}") if verbose else None
     """
     Fetches fallback recommendations from a BigQuery table.
     """
@@ -22,12 +26,15 @@ def fetch_fallback_recommendations(
 
     table = bigquery_client.get_table(fallback_table)
     column_names = {field.name.lower() for field in table.schema}
-    if "feed_id" not in column_names:
+    
+    id_column = "feed_id" if "feed_id" in column_names else "post_id"
+
+    if id_column not in column_names:
         raise RuntimeError(f"`{fallback_table}` must contain a `feed_id` column.")
 
     query = f"""
         SELECT
-          CAST(feed_id AS STRING) AS feed_id,
+          CAST({id_column} AS STRING) AS feed_id,
           TO_JSON_STRING(t) AS metadata
         FROM `{fallback_table}`
         AS t
@@ -59,5 +66,6 @@ def fetch_fallback_recommendations(
         metadata = FeedsMetadata(**metadata_dict) if metadata_dict else None
         items.append((feed_id, metadata))
 
-    # print(f"Fetched {len(items)} fallback recommendations from `{fallback_table}`.")
+    print(f"- Fetched {len(items)} fallback recommendations from `{fallback_table}`.")  if verbose else None
+    print(f"- items : {items}")  if verbose else None
     return items

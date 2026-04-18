@@ -6,6 +6,7 @@ from modules.services.calc_subscore import RerankItem
 from modules.services.recommend_with_subscore import rerank_with_subscore
 from modules.functions.vector_search import VectorSearchClient
 
+verbose = 0
 
 # ---------------------------------------------------------------------------------------------
 # perform async vector_search () for all embeddings; if async fails, do synchronous search
@@ -52,10 +53,10 @@ def rerank_neighbors(
     *,
     embedding_store: HydeEmbeddingStore,
 ) -> list[RerankItem]:
-    # print(f"Position : vector_recommendation.py/def rerank_neighbors")
-    # print(f"student_id : {student_id}")
-    # print(f"search_results : {search_results}")
-    # print(f"embedding_store : {embedding_store}")
+    print(f"Position : vector_recommendation.py/def rerank_neighbors") if verbose else None
+    print(f"student_id : {student_id}") if verbose else None
+    print(f"search_results : {search_results}") if verbose else None
+    print(f"embedding_store : {embedding_store}") if verbose else None
     """Rerank search results with deterministic sub-scoring."""
     score_matrix: list[list[float]] = []
     feed_matrix: list[list[str]] = []

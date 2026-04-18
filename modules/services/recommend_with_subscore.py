@@ -6,6 +6,7 @@ from api.schema import FeedsMetadata, FeedsRecommendation
 from modules.functions.hyde_embedding import HydeEmbeddingStore
 from modules.services.calc_subscore import RerankItem, calc_subscore
 
+verbose = 0
 
 # ---------------------------------------------------------------------------------------------
 # Compute reranked feed candidates by combining vector-search scores with subscore logic
@@ -17,11 +18,11 @@ def rerank_with_subscore(
     feed_matrix: list[list[str]],
     embedding_store: HydeEmbeddingStore,
 ) -> list[RerankItem]:
-    print(f"Position : recommend_with_subscore.py/def rerank_with_subscore")
-    # print(f"- student_id : {student_id}")
-    # print(f"- score_matrix : {score_matrix}")
-    # print(f"- feed_matrix : {feed_matrix}")
-    # print(f"- embedding_store : {embedding_store}")
+    print(f"Position : recommend_with_subscore.py/def rerank_with_subscore") if verbose else None
+    print(f"- student_id : {student_id}") if verbose else None
+    print(f"- score_matrix : {score_matrix}") if verbose else None
+    print(f"- feed_matrix : {feed_matrix}") if verbose else None
+    print(f"- embedding_store : {embedding_store}") if verbose else None
     """
     Compute reranked feed candidates by combining vector-search scores with subscore logic.
 
@@ -31,9 +32,9 @@ def rerank_with_subscore(
     
     ### ----------------- prep hyde & metadata for calc subscore ----------------- ###
     hyde_query = embedding_store.load_hyde_queries(student_id)
-    # print(f"- hyde_query : {hyde_query}")
+    print(f"- hyde_query : {hyde_query}") if verbose else None
     metadata = embedding_store.load_metadata(student_id)
-    # print(f"- metadata : {metadata}")
+    print(f"- metadata : {metadata}") if verbose else None
 
     ### ------------------------- calc subscore w/o hyde ------------------------- ###
     if not hyde_query or not score_matrix or not feed_matrix:

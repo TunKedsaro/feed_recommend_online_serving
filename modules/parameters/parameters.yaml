@@ -127,7 +127,7 @@ scoring:
 eprotection:
   # score
   num_queries: 5
-  candidate_queries : 50
+  candidate_queries : 28     # when change this you have to change config.yaml
   # hq
   fallback_hq_weights: [1.0, 1.0, 1.0, 0.6, 0.6]
   fallback_intent_label: "fallback"
