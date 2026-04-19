@@ -17,7 +17,7 @@ from modules.utils.performance_logging import (
 
 app = FastAPI(
     title="Feed recommentdation Online serving",
-    version="1.1.0",
+    version="1.1.1",
     description=(
         "Feed recommendation Online serving part"
         "<br>"

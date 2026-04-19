@@ -10,10 +10,10 @@ score_aggregation:
   # These will be optionally renormalized to sum to 1.0
   weights:
     vector_score: 0.50        # main semantic relevance (HyDE + FAISS)
-    language_match: 0.00      # TH/EN preference alignment
-    recency: 0.25             # time decay from feed metadata
-    popularity: 0.25          # optional global popularity signal
-
+    recency: 0.15             # time decay from feed metadata
+    popularity: 0.15          # optional global popularity signal
+    seen_feed: 0.1
+    exact_match: 0.1
   # Safety & determinism
   clamp_inputs: true          # clamp all inputs to [0, 1]
   renormalize: true           # renormalize weights if sum != 1

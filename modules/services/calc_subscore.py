@@ -200,6 +200,7 @@ def _get_feature_value(candidate: Dict[str, Any], key: str, missing: float) -> f
 
 ### def main -> | functions.core.online_score_aggregation.py (line:322)
 def aggregate_candidates(candidates:List[Dict[str,Any]], cfg:Dict[str,Any]) -> List[Dict[str,Any]]:
+    print(f"Position : calc_subscore.py/def aggregate_candidates") if verbose else None
     sa = cfg.get("score_aggregation") if isinstance(cfg, dict) else None
     if not isinstance(sa,dict) or not bool(sa.get("enabled",False)):
         return candidates
@@ -207,6 +208,7 @@ def aggregate_candidates(candidates:List[Dict[str,Any]], cfg:Dict[str,Any]) -> L
     if mode != "linear":
         return candidates
     weights_raw = sa.get("weights",{}) or {} # {'vector_score': 0.6, 'language_match': 0.3, 'recency': 0.05, 'popularity': 0.05}
+    print(f"weights_raw : {weights_raw}") if verbose else None
     weights: Dict[str,float] = {}
     if isinstance(weights_raw,dict):
         for k,v in weights_raw.items():
@@ -230,14 +232,14 @@ def aggregate_candidates(candidates:List[Dict[str,Any]], cfg:Dict[str,Any]) -> L
             weights = {k: float(v)/s for k,v in weights.items()}
     out: List[Dict[str,Any]] = []
     for c in candidates:
-        # print(f"candidate -> {c}")          # {'feed_id': 'TH_F023', 'vector_score': 0.9138078093528748, 'subscores': {'language_match': 1.0, 'recency': 0.12537116975009344, 'popularity': 0.7422222182490312}}
+        print(f"candidate -> {c}")          # {'feed_id': 'TH_F023', 'vector_score': 0.9138078093528748, 'subscores': {'language_match': 1.0, 'recency': 0.12537116975009344, 'popularity': 0.7422222182490312}}
         row = dict(c) if isinstance(c,dict) else {"feed_id":None}
         final_score = 0.0
         for feat, w in weights.items():
-            # print(f"feat -> {feat:15s} | w -> {w}")
             if float(w) == 0.0:
                 continue
             v = _get_feature_value(c,feat,missing)
+            print(f"feat -> {feat:15s} | w -> {w} x v -> {v}")
             # print(f"v -> {v}")
             # ----------
             # candidate -> {'feed_id': 'TH_BIO_059', 'vector_score': 0.4929769831091946, 'subscores': {'language_match': 1.0, 'recency': 0.22812574777636782, 'popularity': 0.694063716589213}}
@@ -253,10 +255,11 @@ def aggregate_candidates(candidates:List[Dict[str,Any]], cfg:Dict[str,Any]) -> L
             if clamp_inputs:
                 v = _clamp01(float(v))
             final_score += float(w) * float(v)        # Main of everytning
-            # print(f"final_score : {final_score}")
+            print(f"final_score : {final_score}") if verbose else None
         row["final_score"] = float(final_score)
         out.append(row)
-        # print("-"*10)
+        print("-"*50)
+
     # Deterministic sorting
     def _sort_key(c:Dict[str,Any]):
         keys: List[float] = [float(c.get("final_score",0.0))]
@@ -672,6 +675,11 @@ def load_feeds_meta_map(feed_ids: List[str], url_path:str) -> Dict[str, Dict[str
         # print(f"[load_feeds_meta_map] API error: {e}")
         return {}
 
+def filter_valid_feeds(feeds_meta_map:dict) -> dict:
+    return [
+        fid for fid,meta in feeds_meta_map.items()
+        if isinstance(meta,dict) and meta.get("is_valid") is False
+    ]
 ########################################################################
 
 
@@ -757,21 +765,23 @@ def score_language_match(
         return 1.0
     return 0.0
 
-def _parse_ts_any(v:Any) -> Optional[datetime]:
-    if isinstance(v,str):
+def _parse_ts_any(v: Any) -> Optional[datetime]:
+    if isinstance(v, str):
         s = v.strip()
         if not s:
             return None
         try:
-            # Normalize trailing Z
             if s.endswith("Z"):
-                s = s[:-1]+"+00:00"
-            dt = datetime.fromisoformat(s)
-            if dt.tzinfo is None:
-                dt = dt.replace(tzinfo=timezone.utc)
-            return dt.astimezone(timezone.utc)
+                s = s[:-1] + "+00:00"
+            return datetime.fromisoformat(s).astimezone(timezone.utc)
+        except:
+            pass
+        try:
+            dt = datetime.strptime(s, "%Y-%m-%d %H:%M:%S UTC")
+            return dt.replace(tzinfo=timezone.utc)
         except:
             return None
+
     return None
 
 def score_recency(
@@ -780,8 +790,9 @@ def score_recency(
         now_utc: datetime,
         half_life_days: float = 30.0
 ) -> float:
-    for key in ("published_at","created_at","timestamp","date","ts"):
+    for key in ("post_created_at","published_at","created_at"):
         dt = _parse_ts_any(feed_meta.get(key))
+        print(dt)
         if dt is None:
             continue
         age_days = (now_utc-dt).total_seconds()/86400.0
@@ -792,17 +803,44 @@ def score_recency(
         return float(2.0 ** (-(age_days/half_life_days)))
     return 0.0
 
-def score_popularity(feed_meta:Dict[str,Any]) -> float:
-    for key in ("popularity", "views", "likes", "clicks", "impressions"):
-        v = feed_meta.get(key)
-        if isinstance(v,(int,float)) and v > 0:
-            return float(
-                min(
-                    1.0,
-                    np.log1p(float(v)) / np.log1p(1_000_000.),
-                )
-            )
+def score_popularity(feed_meta: Dict[str, Any]) -> float:
+    keys = ("num_click","num_like","num_comment","num_share","num_bookmark")
+
+    v = 0.0
+    for k in keys:
+        val = feed_meta.get(k)
+        if isinstance(val, (int, float)):
+            v += float(val)
+
+    if v <= 0:
+        return 0.0
+
+    return float(
+        min(
+            1.0,
+            np.log1p(v) / np.log1p(1_000_000.),
+        )
+    )
+
+def score_feed_seen(fmeta: dict, seen_set: set, seen_penalty:float = 0.1) -> float:
+    fid = fmeta.get("post_id")
+    # been seen -> return  +0.1/-0.1
+    if fid in seen_set:
+        return seen_penalty
+    # never seen -> return 0
     return 0.0
+
+def score_exact_match(user_meta:dict, feed_meta:dict)->float:
+    user_level = str(user_meta.get("education_level","")).lower().strip()
+    feed_level = str(feed_meta.get("post_target_group","")).lower().strip()
+    if not user_level or not feed_level:
+        return 0.0
+    if user_level == feed_level:
+        return 1.0
+    if feed_level in ["everyone"]:
+        return 0.5
+    return 0.0
+
 ########################################################################
 
 
@@ -1089,8 +1127,9 @@ def calc_subscore(
     # Uncomment this for show pretty list of feeds with its socre
     n = 0
     for i, j in scored:
-        print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}")
+        print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}") if verbose else None
         n = n+1
+
     timing_ms["vector_retrieval_ms"] = _ms(time.perf_counter() - t0)
 
     ### --------- Exclude seen feeds BEFORE max_candidates cap --------- ###
@@ -1102,26 +1141,30 @@ def calc_subscore(
         metadata = metadata
     )
 
+    # unfilter this if want to activate SEEN THEN FILTER OUT
+    # # Pre filter feed conbine between never seen feed and have been seen
+    # pre_filter_len = len(scored) # -> 40
+    # if exclude_enabled and seen_set:
+    #         scored = [(fid, sc) for (fid, sc) in scored if fid not in seen_set]
+    # # Filter out of feed that user have been seen
+    # post_filter_len = len(scored) # -. 35
 
-    pre_filter_len = len(scored) # -> 40
-    if exclude_enabled and seen_set:
-            scored = [(fid, sc) for (fid, sc) in scored if fid not in seen_set]
-    post_filter_len = len(scored) # -. 35
-    # print(f"pre_filter_len -> {pre_filter_len} | post_filter_len -> {post_filter_len}")
-    # print(f"scored -> {scored}")
     never_seen = [i for i,_ in scored]
-    # print(f"exclude_enabled ->\n{exclude_enabled}")
-    # print(f"seen_meta       ->\n{seen_meta}")
-    # print(f"seen_set ({len(seen_set)})    -> {seen_set}")
-    # print(f"never seen ({len(never_seen)})  -> {never_seen}")
+
+    # print(f"- pre_filter_len -> {pre_filter_len} | post_filter_len -> {post_filter_len}") if verbose else None
+    print(f"- scored -> {scored}") if verbose else None
+    print(f"- exclude_enabled ->\n{exclude_enabled}") if verbose else None
+    print(f"- seen_meta       ->\n{seen_meta}") if verbose else None
+    print(f"- seen_set ({len(seen_set)})    -> {seen_set}") if verbose else None
+    print(f"- never seen ({len(never_seen)})  -> {never_seen}") if verbose else None
 
     # Cap after filtering to preserve return up to N unseen candidates
     scored = scored[: int(max(0,max_candidates))]    # select only maximum candidate feed that possible
 
-    # n = 0
-    # for i, j in scored:
-        # print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}")
-        # n = n+1
+    n = 0
+    for i, j in scored:
+        print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}")  if verbose else None
+        n = n+1
 
     timing_ms["exclude_seen_ms"] = _ms(time.perf_counter()-t0)
 
@@ -1132,40 +1175,46 @@ def calc_subscore(
         feed_ids = never_seen,
         url_path = load_feeds_meta_map_path
         )
-    # print(f"- feeds_meta_map : \n{prettyjson(feeds_meta_map)}")
+    # print(f"- feeds_meta_map : \n{prettyjson(feeds_meta_map)}") if verbose else None
 
+    # Filter feed that is_valid out
+    is_valid_feeds = filter_valid_feeds(feeds_meta_map)
+    print(f"-is_valid_feeds : {is_valid_feeds}")  if verbose else None
 
+    # unfilter this if want to activate SEEN THEN FILTER OUT
+    # Pre filter feed conbine between never seen feed and have been seen
+    pre_filter_is_valid = len(scored) # -> 40
+    if len(is_valid_feeds) > 0:
+            scored = [(fid, sc) for (fid, sc) in scored if fid not in is_valid_feeds]
+    # Filter out of feed that user have been seen
+    post_filter_is_valid = len(scored) # -. 35
+    print(f"- pre_filter_is_valid -> {pre_filter_is_valid} | post_filter_is_valid -> {post_filter_is_valid}") if verbose else None
+
+    n = 0
+    for i, j in scored:
+        print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}")  if verbose else None
+        n = n+1
     #########################################################
     ### --------- Part 2 : Subscore calculation --------- ###
     ### if want to modify some subscore go to line:734    ###
     #########################################################
-    # print(f"user_lang -> {user_lang}")
-
     recency_half_life_days  = int(_coalesce(recency_half_life_days, _get_nested(params, ["retrieval", "recency_half_life_days"], 200)))
     t0 = time.perf_counter()
     candidates: List[Dict[str,Any]] = []
+    print(f"user_metadata ->\n {metadata}")  if verbose else None
     for fid,score in scored:
-        # print(f"fid -> {fid:10s} | score -> {score}")
+        print(f"="*70)  if verbose else None
+        print(f"feed_id -> {fid:10s} | score -> {score}") if verbose else None
         # Feed metadata lookup by feed_id (independent of vector backend):
         fmeta = feeds_meta_map.get(fid,{}) if isinstance(feeds_meta_map,dict) else {}
-        # print(f"fmeta -> {prettyjson(fmeta)}")
-
+        print(f"fmeta -> \n{prettyjson(fmeta)}") if verbose else None
         subscores = {
-            # 1
-            "language_match": score_language_match(
-                fmeta,
-                user_lang = user_lang
-            ),
-            # 2
-            "recency" : score_recency(
-                fmeta,
-                now_utc = now_utc,
-                half_life_days = float(recency_half_life_days)
-            ),
-            # 3
-            "popularity": score_popularity(fmeta)
+            "recency" : score_recency(fmeta,now_utc = now_utc,half_life_days = float(recency_half_life_days)),
+            "popularity": score_popularity(fmeta),
+            "seen_feed": score_feed_seen(fmeta,seen_set),
+            "exact_match": score_exact_match(metadata,fmeta)
         }
-        # print(f"subscore -> \n{subscores}")
+        print(f"subscore -> \n{subscores}")  if verbose else None
         # Debug : indicate which HyDE query contributed most (if available).
         dbg_obj = None
         if debug_map is not None:
@@ -1184,7 +1233,7 @@ def calc_subscore(
         row: Dict[str,Any] = {
             "feed_id":fid,
             "vector_score":float(score),
-            "subscores":subscores
+            "subscores":subscores,
         }
         # print(f"row -> \n{row}")
         if include_feed_header:    
@@ -1205,11 +1254,11 @@ def calc_subscore(
     score_cfg:Dict[str,Any] = {}
     score_enabled = False
     score_weights_path = str(_coalesce(score_weights_path,_get_nested(params, ["retrieval", "score_weights_path"], DEFAULT_SCORE_WEIGHTS_PATH),))
-    # print(Path(score_weights_path).exists())
+    print(f"score_weights_path : {score_weights_path} |{Path(score_weights_path).exists()}") if verbose else None
     try:
         if score_weights_path and Path(score_weights_path).exists():
             score_cfg = load_score_aggregation_config(score_weights_path)
-            # print(f"score_cfg -> \n{prettyjson(score_cfg)}")
+            print(f"score_cfg -> \n{prettyjson(score_cfg)}") if verbose else None
             sa = score_cfg.get("score_aggregation") if isinstance(score_cfg,dict) else {}
             sa = sa if isinstance(sa,dict) else {}
             score_enabled = bool(sa.get("enabled",False))
@@ -1285,11 +1334,11 @@ def calc_subscore(
         # timing
         "timing_ms": timing_ms,
         "timing_meta": {
-            "retrieved_pairs_pre_filter": int(pre_filter_len),
-            "retrieved_pairs_post_filter": int(post_filter_len),
+            # "retrieved_pairs_pre_filter": int(pre_filter_len),
+            # "retrieved_pairs_post_filter": int(post_filter_len),
             "returned_candidates": int(len(candidates)),
             "exclude_seen_enabled": bool(exclude_enabled),
-            "exclude_seen_removed": int(max(0, pre_filter_len - post_filter_len)),
+            # "exclude_seen_removed": int(max(0, pre_filter_len - post_filter_len)),
         },
         # tell consumers what score key represents ordering
         "ranking_score_key": ranking_score_key,
