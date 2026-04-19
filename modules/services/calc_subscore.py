@@ -58,6 +58,9 @@ def prettyjson(txt:str) -> str:
 ########################################################################
 ### def main <- | functions.core.online_score_aggregation.py (line:82) *customs
 def extract_query_weights_and_labels(hq:List[Dict]):
+    weights : List[float] = []
+    qids    : List[str]   = []
+    intents : List[str]   = []
     # - Modify datalake to keep this weights from HyDE
     # hq = [
     #     {'query_id': 'Q1',
@@ -81,9 +84,6 @@ def extract_query_weights_and_labels(hq:List[Dict]):
     #     'weight': 0.6,
     #     'intent_label': 'exploratory'}
     # ]
-    weights : List[float] = []
-    qids    : List[str]   = []
-    intents : List[str]   = []
     for i,q in enumerate(hq):
         if not isinstance(q,dict):
             qids.append(f"Q{i+q}")
@@ -380,13 +380,14 @@ def retrieve_by_hyde_queries_weighted(
         feed,
         hyde_query
 ) -> Tuple[List[Tuple[str, float]], Optional[Dict[str, RetrievalDebug]]]:
-    # print(f"query_weights -> {query_weights}")
-    # print(f"top_k         -> {top_k}")
-    # print(f"agg_mode      -> {agg_mode}")
-    # print(f"return_debug  -> {return_debug}")
-    # print(f"score         -> {score}")
-    # print(f"feed          -> {feed}")
-    # print(f"hyde_query    -> {len(hyde_query)}")
+    print(f"Position : calc_subscore.py/def retrievae_by_hyde_queries_weighted")
+    print(f"query_weights -> {query_weights}") if verbose else None
+    print(f"top_k         -> {top_k}") if verbose else None
+    print(f"agg_mode      -> {agg_mode}") if verbose else None
+    print(f"return_debug  -> {return_debug}") if verbose else None
+    print(f"score         -> {scores}") if verbose else None
+    print(f"feed          -> {feed}") if verbose else None
+    print(f"hyde_query    -> {len(hyde_query)}") if verbose else None
 
     nq = len(hyde_query)
     ### --------- Validate / sanitize weights --------- ###
@@ -465,14 +466,14 @@ def retrieve_by_hyde_queries_weighted(
     assert len(w) == len(feed)
     for qi in range(len(feed)):
         wi = float(w[qi])
-        # print(f"qi:{qi} -> wi:{wi}")
+        print(f"qi:{qi} -> wi:{wi}") if verbose else None
         limit = min(top_k, len(feed[qi]))
         for ki in range(limit):
-            # print(f"- ki : {ki}")
+            print(f"- ki : {ki}") if verbose else None
             # idx = int(indices[qi,ki])     # indices[0,1] -> np.int64(32), indices[0,2] -> np.int64(41), ..., indices[0,29] -> np.int64(49)
             raw     = float(scores[qi][ki])   # float(scores[0,1]) -> 0.90618, float(scores[0,2]) -> 0.88088
             feed_id = feed[qi][ki]           # feed[0][0] -> TH_F001, feed[0][1] -> EN_F028
-            # print(f" - feed_id : {feed_id} -> score : {raw}")
+            print(f" - feed_id : {feed_id} -> score : {raw}") if verbose else None
             if feed_id is None:
                 continue
 
@@ -532,7 +533,7 @@ def retrieve_by_hyde_queries_weighted(
     # Final candidate cap
     if max_candidate is not None and max_candidate > 0:
         candidates = candidates[:max_candidate]
-    # print(f"candidates -> \n{candidates}")
+    print(f"candidates -> \n{candidates}") if verbose else None
     # ----------------------------------------------------------------------
     # Optional debug output
     # ----------------------------------------------------------------------     
@@ -686,42 +687,49 @@ def extract_seen_feed_ids(
     window_days: Optional[int] = None,
     max_unique: Optional[int] = None,
 ) -> Set[str]:
+    print(f"Position : calc_subscore.py/def extract_seen_feed_ids") if verbose else None
+    print(f"- user_events.columns : {user_events.columns}") if verbose else None
+    pd.set_option('display.max_rows', None) if verbose else None
+    pd.set_option('display.max_columns', None) if verbose else None
+    pd.set_option('display.width', None) if verbose else None
+    pd.set_option('display.max_colwidth', None) if verbose else None
+
+    print(user_events)
     if user_events is None or len(user_events) == 0:
         return set()
-    if "feed_id" not in user_events.columns:
-        return set()
+    # if "feed_id" not in user_events.columns or "post_id" not in user_events.columns:
+    #     return set()
     
     df = user_events.copy()
-    df["feed_id"] = df["feed_id"].astype(str).str.strip()
-    df = df[df["feed_id"].astype(bool)] # turn feed_id to bool (True)
+    # remove invalid post_id rows
+    df = df[df["post_id"].notna()].copy()
+    # convert post_id -> feed_id
+    df["feed_id"] = df["post_id"].astype(str).str.strip()
+    # remove empty / fake nan strings
+    df = df[df["feed_id"].ne("")]
+    df = df[df["feed_id"].str.lower().ne("nan")]
     
+    print(f"df ->\n{df}") if verbose else None
     # Filter event types if possible.
     if event_types is not None and "event_type" in df.columns:
-        # print('if1')
         allow = {str(x).lower().strip() for x in event_types if str(x).strip()}   # turn interaction from parameter to set
         df["event_type"] = df["event_type"].astype(str).str.lower().str.strip()
         df = df[df["event_type"].isin(allow)]   # crop only event in allow (event in the list that we want)
     ts_col = "ts" if "ts" in df.columns else None
     # Optional windowing by time (only if ts exists)
     if window_days is not None and int(window_days) > 0 and ts_col is not None:
-        # print('if2')
-        # TODO(Tun) : check time zone
+        # TODO : check time zone
         now_utc = now_utc or datetime.now(timezone.utc)
         ts = pd.to_datetime(df[ts_col],errors="coerce", utc=True)
         df = df.assign(_ts=ts).dropna(subset=["_ts"]) # select only time 16  stu_p003  TH_F006  2026-01-06T07:20:15Z       view     22000 2026-01-06 07:20:15+00:00
-        # print(f"df -> \n{df}")
         # TODO(Tun) : do something with windown day
         if not df.empty:
-            # print('if2.1')
             cutoff = now_utc - pd.Timedelta(days=int(window_days))
             df = df[df["_ts"] >= cutoff]
-        # print(f"df -> \n{df}")
     # Optional deterministic cap by most-recent unique feeds.
     if max_unique is not None and int(max_unique) > 0 and ts_col is not None:
-        # print('if3')
         ts = pd.to_datetime(df[ts_col], errors="coerce", utc=True)  # crop only ts_col then turn to datetime style
         df = df.assign(_ts=ts).dropna(subset=["_ts"]).sort_values("_ts", ascending=False)  # sort event by time
-        # print(f"df -> \n{df}")
         seen: Set[str] = set()
         for fid in df["feed_id"].tolist():
             if fid in seen:
@@ -849,6 +857,7 @@ def _get_seen_feed_ids_from_params(
         now_utc : datetime,
         metadata
 ) -> Tuple[bool, Set[str], Dict[str,Any]]:    # line : 264
+    print(f"calc_subscore.py/def _get_seen_feed_ids_from_params")
     cfg     = _get_nested(params,["retrieval","exclude_seen"],{}) or {}
     enabled = bool(cfg.get("enabled",False))
     meta = {
@@ -884,10 +893,10 @@ def _get_seen_feed_ids_from_params(
         df["ts"] = pd.to_datetime(df["ts"], utc=True)
 
     # print(f"interactions_path -> {interactions_path}")
-    # print(f"df                -> \n{df}")
-    # print(f"event_types       -> {event_types}")
-    # print(f"window_days       -> {window_days}")
-    # print(f"max_unique        -> {max_unique}")
+    print(f"- df                -> \n{df}") if verbose else None
+    print(f"- event_types       -> {event_types}") if verbose else None
+    print(f"- window_days       -> {window_days}") if verbose else None
+    print(f"- max_unique        -> {max_unique}") if verbose else None
     seen = extract_seen_feed_ids(
         df,
         event_types = event_types,
@@ -895,7 +904,6 @@ def _get_seen_feed_ids_from_params(
         window_days = int(window_days) if window_days is not None else None,
         max_unique  = int(max_unique) if max_unique is not None else None,
     )
-    # print(f"seen -> \n{seen}")
     meta.update(
         {
             "exclude_seen_enabled":True,
@@ -906,7 +914,8 @@ def _get_seen_feed_ids_from_params(
             "exclude_seen_max_unique":int(max_unique) if max_unique is not None else None,
         }
     )
-    # print(f"meta -> \n{prettyjson(meta)}")
+    print(f"- seen -> \n{seen}")
+    print(f"- meta -> \n{prettyjson(meta)}")
     return True, seen, meta
 
 def to_rerank_items(candidates: List[Dict[str, Any]]) -> List[RerankItem]:
@@ -950,7 +959,7 @@ def to_rerank_items(candidates: List[Dict[str, Any]]) -> List[RerankItem]:
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_PARAMS_PATH = BASE_DIR / "parameters" / "parameters.yaml"
 DEFAULT_SCORE_WEIGHTS_PATH = BASE_DIR / "parameters" / "retrieval_score_weights.yaml"
-
+verbose = 1
 # ----------------------------------------------------------------------
 # Main
 # ----------------------------------------------------------------------
@@ -972,7 +981,21 @@ def calc_subscore(
     user_lang                              = 'th',
     return_debug                           = True 
 ):
-    # print(f"Position : calc_subscore.py/calc_subscore")
+    print(f"*"*50) if verbose else None
+    print(f"- Position : calc_subscore.py/def calc_subscore") if verbose else None
+    print(f"- student_id : {student_id}") if verbose else None
+    print(f"- score : {score}") if verbose else None
+    print(f"- feed : {feed}") if verbose else None
+    print(f"- hyde_query : {hyde_query}") if verbose else None
+    print(f"- metadata : {metadata}") if verbose else None
+    print(f"- now_utc : {now_utc}") if verbose else None
+    print(f"- include_feed_header : {include_feed_header}") if verbose else None
+    print(f"- max_candidates : {max_candidates}") if verbose else None
+    print(f"- agg_mode : {agg_mode}") if verbose else None
+    print(f"- recency_half_life_days : {recency_half_life_days}") if verbose else None
+    print(f"- score_weights_path : {score_weights_path}") if verbose else None
+    print(f"- score_weights_path : {user_lang}") if verbose else None
+    print(f"- return_debug : {return_debug}") if verbose else None
     # ----------------------------------------------------------------------
     # Main
     # pipeline_3_online_retrieval.py | def run_online_retrieval()
@@ -986,7 +1009,7 @@ def calc_subscore(
     t0 = time.perf_counter()
     params = _load_params_yaml(DEFAULT_PARAMS_PATH)
     timing_ms["load_params_ms"] = _ms(time.perf_counter() - t0)
-    # print(f"params -> {prettyjson(params)}")
+    print(f"- params -> {prettyjson(params)}") if verbose else None
 
     ### --------- Error Protection --------- ###
     num_queries       = _get_nested(params, ["eprotection", "num_queries"],5)
@@ -1027,24 +1050,27 @@ def calc_subscore(
     include_feed_header = bool(
         _coalesce(include_feed_header, _get_nested(params, ["retrieval", "include_feed_header"], False))
     )
+    # TODO : fix this feed -> post
     header_keys = _get_nested(params, ["retrieval", "feed_header_keys"], ["title", "header", "name", "feed_title"])
 
     top_k_per_query = int(_coalesce(_get_nested(d  = params, keys = ["retrieval","top_k_per_query"], default = 50)))    # line:398
-    max_candidates  = int(_coalesce(max_candidates, _get_nested(params, ["retrieval", "max_candidates"], 200)))
+    max_candidates  = int(_coalesce(max_candidates, _get_nested(params, ["retrieval", "max_candidates"], 100)))
     agg_mode        = str(_coalesce(agg_mode, _get_nested(params, ["retrieval", "agg_mode"], "WEIGHTED_MAX")))
 
-    # print(now_utc)
-    # print(include_feed_header)
-    # print(header_keys)
-    # print(top_k_per_query)
-    # print(max_candidates)
-    # print(agg_mode)
+    # print(include_feed_header) if verbose else None
+    # print(header_keys) if verbose else None
+    # print(top_k_per_query) if verbose else None
+    # print(max_candidates) if verbose else None
+    # print(agg_mode) if verbose else None
 
     ### --------- Query weights/labels aligned with embedding rows (customs) --------- ###
     t0 = time.perf_counter()    # line:451
     weights, qids, intents = extract_query_weights_and_labels(hyde_query)
-    timing_ms["extract_query_weights_ms"] = _ms(time.perf_counter() - t0)
     # print(weights,qids,intents)
+    print(f"weights : {weights}") if verbose else None
+    print(f"qids : {qids}") if verbose else None
+    print(f"intents : {intents}") if verbose else None
+    timing_ms["extract_query_weights_ms"] = _ms(time.perf_counter() - t0)
 
     ### --------- Vector retrieval (multi-query aggregation) --------- ###
     t0 = time.perf_counter()    #line:478
@@ -1060,11 +1086,13 @@ def calc_subscore(
         hyde_query    = hyde_query,
         max_candidate = max_candidates
     )
-    # n = 0
-    # for i, j in scored:
-        # print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}")
-        # n = n+1
+    # Uncomment this for show pretty list of feeds with its socre
+    n = 0
+    for i, j in scored:
+        print(f"{n:2d} Feed_index : {i:10s} sorted_score : {j}")
+        n = n+1
     timing_ms["vector_retrieval_ms"] = _ms(time.perf_counter() - t0)
+
     ### --------- Exclude seen feeds BEFORE max_candidates cap --------- ###
     t0 = time.perf_counter()
     exclude_enabled, seen_set, seen_meta = _get_seen_feed_ids_from_params(

@@ -2,38 +2,38 @@
 # App-level metadata
 # --------------------------------------------------------------------------------------
 app:
-  name: poc_hyde_feed_recommendation
+  name: feed_recommendation
   timezone: UTC
   # NOTE (POC):
   # - Used mainly for logging / metadata echo
   # - No timezone conversion logic is applied in POC
 
 
-# --------------------------------------------------------------------------------------
-# Raw input data locations (POC only)
-# --------------------------------------------------------------------------------------
-data:
-  feeds_path: data/feeds.jsonl
-  students_path: data/students.csv
-  interactions_path: data/interactions.csv
-  # NOTE (POC):
-  # - These paths are used only in batch/offline pipelines
-  # - Online serving NEVER reads raw CSV/JSON directly
+# # --------------------------------------------------------------------------------------
+# # Raw input data locations (POC only)
+# # --------------------------------------------------------------------------------------
+# data:
+#   feeds_path: data/feeds.jsonl
+#   students_path: data/students.csv
+#   interactions_path: data/interactions.csv
+#   # NOTE (POC):
+#   # - These paths are used only in batch/offline pipelines
+#   # - Online serving NEVER reads raw CSV/JSON directly
 
 
-# --------------------------------------------------------------------------------------
-# Artifact locations (USED in POC)
-# --------------------------------------------------------------------------------------
-artifacts:
-  feed_index_dir: artifacts/feed_index
-  user_query_bundles_dir: artifacts/user_query_bundles
-  # USED:
-  # - feed_index_dir → FAISS index + feeds_meta.jsonl
-  # - user_query_bundles_dir → cached HyDE queries + embeddings
-  #
-  # In production:
-  # - feed_index_dir will be replaced by Vertex AI Vector Search
-  # - user_query_bundles_dir remains (or moves to GCS / DB)
+# # --------------------------------------------------------------------------------------
+# # Artifact locations (USED in POC)
+# # --------------------------------------------------------------------------------------
+# artifacts:
+#   feed_index_dir: artifacts/feed_index
+#   user_query_bundles_dir: artifacts/user_query_bundles
+#   # USED:
+#   # - feed_index_dir → FAISS index + feeds_meta.jsonl
+#   # - user_query_bundles_dir → cached HyDE queries + embeddings
+#   #
+#   # In production:
+#   # - feed_index_dir will be replaced by Vertex AI Vector Search
+#   # - user_query_bundles_dir remains (or moves to GCS / DB)
 
 
 # --------------------------------------------------------------------------------------
@@ -78,7 +78,7 @@ hyde:
 # --------------------------------------------------------------------------------------
 retrieval:
   top_k_per_query: 30
-  max_candidates: 10
+  max_candidates: 5
   agg_mode: WEIGHTED_MAX          # WEIGHTED_MAX | WEIGHTED_MEAN
   recency_half_life_days: 30.0
   include_feed_header: true       # include feed_header field in candidates
@@ -92,8 +92,8 @@ retrieval:
   exclude_seen:
     enabled: true
     interactions_path: data/interactions.csv
-    event_types: ["view", "click", "like", "share", "comment"]
-    window_days: 100
+    event_types: ["view", "click", "like", "bookmark","share", "comment"]  # Not include "search" because there are no feed that It's response with
+    window_days: 90   # Remove all feed that create before 3 month
     max_unique: 5000
 
     # USED:
