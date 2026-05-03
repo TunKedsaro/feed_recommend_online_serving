@@ -117,7 +117,7 @@ class RecommendationService:
         cache_hit = False
 
         cache_key = self._key(student_id)
-        print("#"*100)
+        print("#"*100) if self.verbose else None
         print(f"- cache_key : {cache_key}") if self.verbose else None
 
         cache_started = time.perf_counter()
@@ -126,7 +126,7 @@ class RecommendationService:
         t_cache_get = time.perf_counter() - cache_started
         
         if cached_response:
-            print(f"Cache hit for {student_id}, returning cached recommendations.")
+            print(f"Cache hit for {student_id}, returning cached recommendations.") if self.verbose else None
             cache_hit = True
             diagnostics = RecommendationDiagnostics(
                 cache_hit=cache_hit,
@@ -144,17 +144,17 @@ class RecommendationService:
             return cached_response, diagnostics
         ### --------------------------- return cached response --------------------------- ###
 
-        print(f"No cache found for {student_id}, retrieving embedding for vector search...")
+        print(f"No cache found for {student_id}, retrieving embedding for vector search...") if self.verbose else None
         embeddings = self.embedding_store.load_embeddings(student_id)
         # embeddings = None   # uncomement to check fallback system bigquery by local and cahce redis by online
         if embeddings:
-            print(f"embedding shape: ({len(embeddings)}, {len(embeddings[0])})")
-            print(f"embedding[0] : {embeddings[0][:5]}")
-            print(f"embedding[1] : {embeddings[1][:5]}")
+            print(f"embedding shape: ({len(embeddings)}, {len(embeddings[0])})") if self.verbose else None
+            print(f"embedding[0] : {embeddings[0][:5]}") if self.verbose else None
+            print(f"embedding[1] : {embeddings[1][:5]}") if self.verbose else None
 
         if not embeddings:
-            print(f"No embeddings found for {student_id}, activating fallback, trigger hyde generation...")
-            print(f"======_build_fallback_response======")
+            print(f"No embeddings found for {student_id}, activating fallback, trigger hyde generation...") if self.verbose else None
+            print(f"======_build_fallback_response======") if self.verbose else None
             response, postprocess_timings = self._build_fallback_response(
                 student_id=student_id,
                 trigger_refresh=True,
@@ -176,7 +176,7 @@ class RecommendationService:
         ### --------------------- return no embedding fallback response --------------------- ###
 
         try:
-            print(f"Embeddings retrieved for {student_id}, proceeding with vector search...")
+            print(f"Embeddings retrieved for {student_id}, proceeding with vector search...") if self.verbose else None
             response, t_vector_search, postprocess_timings, num_recommendations = self._build_vector_response(
                 student_id=student_id,
                 embeddings=embeddings,
@@ -239,8 +239,8 @@ class RecommendationService:
             ### ------------------------- return vector search response ------------------------- ###
 
         except Exception as exc: 
-            print(f"vector search fallback activated for {student_id}: {exc}")
-            print(f"======_build_fallback_response======")
+            print(f"vector search fallback activated for {student_id}: {exc}") if self.verbose else None
+            print(f"======_build_fallback_response======") if self.verbose else None
             response, postprocess_timings = self._build_fallback_response(
                 student_id=student_id,
                 trigger_refresh=False,
@@ -375,7 +375,7 @@ class RecommendationService:
 
         ### ----------------------- if there is metadata in cache, cache fallback ----------------------- ###
         if len(feed_cache_keys) >= fallback_limit:
-            print(f"- if len(feed_cache_keys) >= fallback_limit:")
+            print(f"- if len(feed_cache_keys) >= fallback_limit:") if self.verbose else None
             selected_keys = feed_cache_keys[:fallback_limit]
             cached_payloads = self.redis_cache.get_many(selected_keys)
             fallback_items: list[tuple[str, FeedsMetadata | None]] = []
@@ -389,7 +389,7 @@ class RecommendationService:
 
         ### ------------------------ if no metadata in cache, bigquery fallback ------------------------ ###
         else:
-            print(f"- if len(feed_cache_keys) < fallback_limit:")
+            print(f"- if len(feed_cache_keys) < fallback_limit:") if self.verbose else None
             # print(f"Redis fallback cache is insufficient ({len(feed_cache_keys)}/{fallback_limit}); using BigQuery fallback.")
             fallback_items = fetch_fallback_recommendations(
                 bigquery_client=self.bigquery_client,

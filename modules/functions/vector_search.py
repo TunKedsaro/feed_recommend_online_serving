@@ -3,6 +3,7 @@ from typing import Any
 from google.api_core.exceptions import NotFound
 from google.cloud import aiplatform
 
+verbose = 0 
 
 def _parse_project_and_region(index_endpoint: str) -> tuple[str, str]:
     """
@@ -80,7 +81,7 @@ class VectorSearchClient:
 # main function: trigger hyde generation of student
 # ---------------------------------------------------------------------------------------------
     def search(self, embeddings: list[list[float]], restricts: list[Any] | None = None) -> list[dict[str, Any]]:
-        print(f"Position : vector_search.py/class VectorSearchClient/def search")
+        print(f"Position : vector_search.py/class VectorSearchClient/def search") if verbose else None
         """
         Performs a vector search using the Vertex AI Matching Engine.
         """

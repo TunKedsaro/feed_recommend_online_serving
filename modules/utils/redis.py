@@ -6,6 +6,7 @@ from redis.exceptions import ConnectionError as RedisConnectionError
 from redis.exceptions import TimeoutError as RedisTimeoutError
 
 
+verbose = 0
 class RedisCache:
 
 # ---------------------------------------------------------------------------------------------
@@ -51,8 +52,8 @@ class RedisCache:
                 return None
             return self._load_json(payload)
         except (RedisConnectionError, RedisTimeoutError) as exc:
-            print("Try is fail do except")
-            print(f"Warning: Redis get failed for key '{key}': {exc}")
+            print("Try is fail do except") if verbose else None
+            print(f"Warning: Redis get failed for key '{key}': {exc}") if verbose else None
             return None
 
     ### ---------------------------------- get many items ---------------------------------- ###
@@ -71,7 +72,7 @@ class RedisCache:
                 for key, payload in zip(keys, payloads)
             }
         except (RedisConnectionError, RedisTimeoutError) as exc:
-            print(f"Warning: Redis get_many failed: {exc}")
+            print(f"Warning: Redis get_many failed: {exc}") if verbose else None
             return {}
 
     ### ---------------------------------- set one item ---------------------------------- ###
@@ -82,7 +83,7 @@ class RedisCache:
         try:
             self.redis_client.setex(key, ttl_seconds, json.dumps(value))
         except (RedisConnectionError, RedisTimeoutError) as exc:
-            print(f"Warning: Redis set failed for key '{key}': {exc}")
+            print(f"Warning: Redis set failed for key '{key}': {exc}") if verbose else None
 
     ### ---------------------------------- set many items ---------------------------------- ###
     def set_many(self, mapping: dict[str, dict[str, Any]], ttl_seconds: int) -> int:

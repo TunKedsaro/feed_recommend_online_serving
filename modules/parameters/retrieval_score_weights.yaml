@@ -9,11 +9,12 @@ score_aggregation:
   # Weights for each score component
   # These will be optionally renormalized to sum to 1.0
   weights:
-    vector_score: 0.50        # main semantic relevance (HyDE + FAISS)
-    recency: 0.15             # time decay from feed metadata
-    popularity: 0.15          # optional global popularity signal
-    seen_feed: 0.1
-    exact_match: 0.1
+    vector_score: 0.4          # main semantic relevance
+    recency: 0.175             # time decay from feed metadata
+    popularity: 0.175          # optional global popularity signal
+    seen_feed: 0.05
+    exact_match: 0.05          # exactmatch
+    jaccard_match : 0.15       # Overlab
   # Safety & determinism
   clamp_inputs: true          # clamp all inputs to [0, 1]
   renormalize: true           # renormalize weights if sum != 1

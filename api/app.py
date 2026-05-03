@@ -35,7 +35,7 @@ app = FastAPI(
 
 API_VERSION_HEADER = "X-API-Version"
 CORRELATION_ID_HEADER = "X-Correlation-Id"
-
+verbose = 0
 
 # ---------------------------------------------------------------------------------------------
 # Lazily initializes and caches the RecommendationService instance.
@@ -80,9 +80,9 @@ def recommend(
     payload: RecommendationRequest,
     service: RecommendationService = Depends(get_recommendation_service),
 ) -> RecommendationResponse:
-    print(f"request: {request}")
-    print(f"payload: {payload}")
-    print(f"service: {service}")
+    print(f"request: {request}") if verbose else None
+    print(f"payload: {payload}") if verbose else None
+    print(f"service: {service}") if verbose else None
     """Endpoint to get feed recommendations for a student."""
     started = time.perf_counter()
     req_id = request_id(request)

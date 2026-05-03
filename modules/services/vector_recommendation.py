@@ -17,7 +17,7 @@ def search_neighbors_async(
     vector_search: VectorSearchClient,
 ) -> tuple[list[list[dict[str, Any]]], list[int]]:
     """Search neighbors asynchronously, falling back to sync when needed."""
-    print(f"vector_recommendation.py/search_neighbors_async")
+    print(f"vector_recommendation.py/search_neighbors_async") if verbose else None
     async def _run() -> list[list[dict[str, Any]]]:
         tasks = [
             asyncio.to_thread(vector_search.search, [embedding])

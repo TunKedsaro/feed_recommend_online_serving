@@ -12,7 +12,9 @@ from datetime import datetime, timezone
 import numpy as np
 from dataclasses import dataclass
 import pandas as pd
+import ast
 
+verbose = 0
 # ----------------------------------------------------------------------
 # schema
 # ----------------------------------------------------------------------
@@ -232,14 +234,14 @@ def aggregate_candidates(candidates:List[Dict[str,Any]], cfg:Dict[str,Any]) -> L
             weights = {k: float(v)/s for k,v in weights.items()}
     out: List[Dict[str,Any]] = []
     for c in candidates:
-        print(f"candidate -> {c}")          # {'feed_id': 'TH_F023', 'vector_score': 0.9138078093528748, 'subscores': {'language_match': 1.0, 'recency': 0.12537116975009344, 'popularity': 0.7422222182490312}}
+        print(f"candidate -> {c}") if verbose else None          # {'feed_id': 'TH_F023', 'vector_score': 0.9138078093528748, 'subscores': {'language_match': 1.0, 'recency': 0.12537116975009344, 'popularity': 0.7422222182490312}}
         row = dict(c) if isinstance(c,dict) else {"feed_id":None}
         final_score = 0.0
         for feat, w in weights.items():
             if float(w) == 0.0:
                 continue
             v = _get_feature_value(c,feat,missing)
-            print(f"feat -> {feat:15s} | w -> {w} x v -> {v}")
+            print(f"feat -> {feat:15s} | w -> {w} x v -> {v}") if verbose else None
             # print(f"v -> {v}")
             # ----------
             # candidate -> {'feed_id': 'TH_BIO_059', 'vector_score': 0.4929769831091946, 'subscores': {'language_match': 1.0, 'recency': 0.22812574777636782, 'popularity': 0.694063716589213}}
@@ -258,7 +260,7 @@ def aggregate_candidates(candidates:List[Dict[str,Any]], cfg:Dict[str,Any]) -> L
             print(f"final_score : {final_score}") if verbose else None
         row["final_score"] = float(final_score)
         out.append(row)
-        print("-"*50)
+        print("-"*50) if verbose else None
 
     # Deterministic sorting
     def _sort_key(c:Dict[str,Any]):
@@ -383,7 +385,7 @@ def retrieve_by_hyde_queries_weighted(
         feed,
         hyde_query
 ) -> Tuple[List[Tuple[str, float]], Optional[Dict[str, RetrievalDebug]]]:
-    print(f"Position : calc_subscore.py/def retrievae_by_hyde_queries_weighted")
+    print(f"Position : calc_subscore.py/def retrievae_by_hyde_queries_weighted") if verbose else None
     print(f"query_weights -> {query_weights}") if verbose else None
     print(f"top_k         -> {top_k}") if verbose else None
     print(f"agg_mode      -> {agg_mode}") if verbose else None
@@ -702,7 +704,7 @@ def extract_seen_feed_ids(
     pd.set_option('display.width', None) if verbose else None
     pd.set_option('display.max_colwidth', None) if verbose else None
 
-    print(user_events)
+    print(user_events) if verbose else None
     if user_events is None or len(user_events) == 0:
         return set()
     # if "feed_id" not in user_events.columns or "post_id" not in user_events.columns:
@@ -792,7 +794,7 @@ def score_recency(
 ) -> float:
     for key in ("post_created_at","published_at","created_at"):
         dt = _parse_ts_any(feed_meta.get(key))
-        print(dt)
+        print(dt)  if verbose else None
         if dt is None:
             continue
         age_days = (now_utc-dt).total_seconds()/86400.0
@@ -841,6 +843,47 @@ def score_exact_match(user_meta:dict, feed_meta:dict)->float:
         return 0.5
     return 0.0
 
+def parse_list_field(x):
+    if isinstance(x, list):
+        return x
+
+    if isinstance(x, str):
+        try:
+            return ast.literal_eval(x)
+        except:
+            return []
+
+    return []
+
+def iou_score(set_a:set, set_b:set) -> float:
+    if not set_a or not set_b:
+        return 0.0
+    inter = set_a & set_b
+    union = set_a | set_b
+    
+    return len(inter)/len(union)
+
+def score_iou(user_meta: dict, feed_meta: dict) -> float:
+    print(f"Position : calc_subscore.py/def score_iou") if verbose else None
+
+    # --- parse user ---
+    user_tags = set(parse_list_field(user_meta.get("tag_interaction")))
+    user_cats = set(parse_list_field(user_meta.get("category_interaction")))
+    print(f"user_tags -> {user_tags}") if verbose else None
+    print(f"user_cats -> {user_cats}") if verbose else None
+
+    # --- parse feed ---
+    feed_tags = set(parse_list_field(feed_meta.get("post_tags")))
+    feed_cats = set(parse_list_field(feed_meta.get("post_category")))
+    print(f"feed_tags -> {feed_tags}") if verbose else None
+    print(f"feed_cats -> {feed_cats}") if verbose else None
+    # --- compute ---
+    tag_score = iou_score(user_tags, feed_tags)
+    cat_score = iou_score(user_cats, feed_cats)
+    print(f"tag_score -> {tag_score}") if verbose else None
+    print(f"cat_score -> {cat_score}") if verbose else None
+    # weighted sum
+    return 0.5 * tag_score + 0.5 * cat_score
 ########################################################################
 
 
@@ -895,7 +938,7 @@ def _get_seen_feed_ids_from_params(
         now_utc : datetime,
         metadata
 ) -> Tuple[bool, Set[str], Dict[str,Any]]:    # line : 264
-    print(f"calc_subscore.py/def _get_seen_feed_ids_from_params")
+    print(f"calc_subscore.py/def _get_seen_feed_ids_from_params") if verbose else None
     cfg     = _get_nested(params,["retrieval","exclude_seen"],{}) or {}
     enabled = bool(cfg.get("enabled",False))
     meta = {
@@ -952,8 +995,8 @@ def _get_seen_feed_ids_from_params(
             "exclude_seen_max_unique":int(max_unique) if max_unique is not None else None,
         }
     )
-    print(f"- seen -> \n{seen}")
-    print(f"- meta -> \n{prettyjson(meta)}")
+    print(f"- seen -> \n{seen}") if verbose else None
+    print(f"- meta -> \n{prettyjson(meta)}") if verbose else None
     return True, seen, meta
 
 def to_rerank_items(candidates: List[Dict[str, Any]]) -> List[RerankItem]:
@@ -997,7 +1040,7 @@ def to_rerank_items(candidates: List[Dict[str, Any]]) -> List[RerankItem]:
 BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_PARAMS_PATH = BASE_DIR / "parameters" / "parameters.yaml"
 DEFAULT_SCORE_WEIGHTS_PATH = BASE_DIR / "parameters" / "retrieval_score_weights.yaml"
-verbose = 1
+
 # ----------------------------------------------------------------------
 # Main
 # ----------------------------------------------------------------------
@@ -1177,18 +1220,18 @@ def calc_subscore(
         )
     # print(f"- feeds_meta_map : \n{prettyjson(feeds_meta_map)}") if verbose else None
 
-    # Filter feed that is_valid out
-    is_valid_feeds = filter_valid_feeds(feeds_meta_map)
-    print(f"-is_valid_feeds : {is_valid_feeds}")  if verbose else None
+    # # Filter feed that is_valid out
+    # is_valid_feeds = filter_valid_feeds(feeds_meta_map)
+    # print(f"-is_valid_feeds : {is_valid_feeds}")  if verbose else None
 
-    # unfilter this if want to activate SEEN THEN FILTER OUT
-    # Pre filter feed conbine between never seen feed and have been seen
-    pre_filter_is_valid = len(scored) # -> 40
-    if len(is_valid_feeds) > 0:
-            scored = [(fid, sc) for (fid, sc) in scored if fid not in is_valid_feeds]
+    # # unfilter this if want to activate SEEN THEN FILTER OUT
+    # # Pre filter feed conbine between never seen feed and have been seen
+    # pre_filter_is_valid = len(scored) # -> 40
+    # if len(is_valid_feeds) > 0:
+    #         scored = [(fid, sc) for (fid, sc) in scored if fid not in is_valid_feeds]
     # Filter out of feed that user have been seen
-    post_filter_is_valid = len(scored) # -. 35
-    print(f"- pre_filter_is_valid -> {pre_filter_is_valid} | post_filter_is_valid -> {post_filter_is_valid}") if verbose else None
+    # post_filter_is_valid = len(scored) # -. 35
+    # print(f"- pre_filter_is_valid -> {pre_filter_is_valid} | post_filter_is_valid -> {post_filter_is_valid}") if verbose else None
 
     n = 0
     for i, j in scored:
@@ -1212,7 +1255,8 @@ def calc_subscore(
             "recency" : score_recency(fmeta,now_utc = now_utc,half_life_days = float(recency_half_life_days)),
             "popularity": score_popularity(fmeta),
             "seen_feed": score_feed_seen(fmeta,seen_set),
-            "exact_match": score_exact_match(metadata,fmeta)
+            "exact_match": score_exact_match(metadata,fmeta),
+            "jaccard": score_iou(metadata,fmeta)
         }
         print(f"subscore -> \n{subscores}")  if verbose else None
         # Debug : indicate which HyDE query contributed most (if available).
