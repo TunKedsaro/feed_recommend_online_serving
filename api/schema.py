@@ -13,7 +13,17 @@ class APIModel(BaseModel):
 # Request
 # ---------------------------------------------------------------------------------------------
 class RecommendationRequest(APIModel):
-    student_id: str = Field(..., min_length=1)
+    student_id: str = Field(
+        ...,
+        min_length=1,
+        examples=["stu_p4198"],
+    )
+
+    category: str | None = Field(
+        default=None,
+        examples=["career"],
+        description="Optional category filter. Example: career / technology / education. Null means no filter.",
+    )
 
 
 # ---------------------------------------------------------------------------------------------

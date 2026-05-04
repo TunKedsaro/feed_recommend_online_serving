@@ -20,6 +20,7 @@ from modules.services.vector_recommendation import (
 from modules.utils.load_config import Settings
 from modules.utils.redis import RedisCache
 
+import json
 # ---------------------------------------------------------------------------------------------
 # Logging and diagnostics dataclass
 # ---------------------------------------------------------------------------------------------
@@ -72,7 +73,7 @@ class RecommendationService:
     def __init__(self, settings: Settings) -> None:
         """Initialize the recommendation service with necessary clients and configurations."""
         self.settings = settings
-        self.verbose = 0
+        self.verbose = 1
 
         self.redis_cache = RedisCache(
             host=self.settings.cache.redis_host,
@@ -101,6 +102,19 @@ class RecommendationService:
     def _key(student_id: str) -> str:
         """Generate a Redis cache key for a given student ID."""
         return f"recommendations:{student_id}"
+    
+    def filter_by_category(self, response, category):
+        print("Position : recommend_feeds.py/class RecommendationService/def filter_by_category")
+        if not category:
+            return response
+        filtered = []
+        for rec in response.recommendations:
+            categories = json.loads(rec.metadata.post_category)
+            if category in categories:
+                filtered.append(rec)
+        response.recommendations = filtered
+        response.num_recommendations = len(filtered)
+        return response
 
 
 # ---------------------------------------------------------------------------------------------
@@ -109,8 +123,13 @@ class RecommendationService:
     def recommend(
         self,
         student_id: str,
+        category: str
     ) -> tuple[RecommendationResponse, RecommendationDiagnostics]:
         """Get feed recommendations from cache, vector search, or fallback."""
+        print(f"Position : recommend_feeds.py/class RecommendationService/def recommend")
+        print(f"student_id : {student_id}")
+        print(f"category : {category}")
+
         started = time.perf_counter()
         postprocess_timings = PostprocessTimings()
         t_vector_search = 0.0
@@ -141,6 +160,12 @@ class RecommendationService:
                 t_top_up_merge=postprocess_timings.t_top_up_merge,
                 num_recommendations=[],
             )
+            print("#"*50)
+            print(f"pre-response  : {cached_response}")
+            cached_response = self.filter_by_category(cached_response, category)
+            print("-"*50)
+            print(f"post-response : {cached_response}")
+            print("#"*50)
             return cached_response, diagnostics
         ### --------------------------- return cached response --------------------------- ###
 
@@ -172,6 +197,13 @@ class RecommendationService:
                 t_top_up_merge=postprocess_timings.t_top_up_merge,
                 num_recommendations=[],
             )
+            print("#"*50)
+            print(f"pre-response  : {response}")
+            response = self.filter_by_category(response, category)
+            print("-"*50)
+            print(f"post-response : {response}")
+            print("#"*50)
+
             return response, diagnostics
         ### --------------------- return no embedding fallback response --------------------- ###
 
@@ -235,6 +267,12 @@ class RecommendationService:
                 t_top_up_merge=postprocess_timings.t_top_up_merge,
                 num_recommendations=num_recommendations,
             )
+            print("#"*50)
+            print(f"pre-response  : {response}")
+            response = self.filter_by_category(response, category)
+            print("-"*50)
+            print(f"post-response : {response}")
+            print("#"*50)
             return response, diagnostics
             ### ------------------------- return vector search response ------------------------- ###
 
@@ -258,6 +296,12 @@ class RecommendationService:
                 t_top_up_merge=postprocess_timings.t_top_up_merge,
                 num_recommendations=[],
             )
+            print("#"*50)
+            print(f"pre-response  : {response}")
+            response = self.filter_by_category(response, category)
+            print("-"*50)
+            print(f"post-response : {response}")
+            print("#"*50)
             return response, diagnostics
             ### ------------------ return vector search fail; fallback response ------------------ ###
 

@@ -35,7 +35,7 @@ app = FastAPI(
 
 API_VERSION_HEADER = "X-API-Version"
 CORRELATION_ID_HEADER = "X-Correlation-Id"
-verbose = 0
+verbose = 1
 
 # ---------------------------------------------------------------------------------------------
 # Lazily initializes and caches the RecommendationService instance.
@@ -89,7 +89,11 @@ def recommend(
     trace_id = extract_trace_id(request)
     try:
         ### --- Call the recommendation service to get recommendations and diagnostics information. --- ###
-        response, diagnostics = service.recommend(payload.student_id)
+        response, diagnostics = service.recommend(
+            payload.student_id,
+            payload.category
+            )
+
 
         write_started = time.perf_counter()
         response.model_dump_json()
