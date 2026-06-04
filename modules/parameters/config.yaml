@@ -28,7 +28,7 @@ vertex:
   #     - "university"
 
 bigquery:
-  fallback_table: "poc-piloturl-nonprod.mock_feed_recommendation.silver_feed_community"
+  fallback_table: "poc-piloturl-nonprod.mock_feed_recommendation_th.silver_feed_community"
   # fallback_table: "poc-piloturl-nonprod.gold_layer.feeds_20k"
   fallback_limit: 28
 

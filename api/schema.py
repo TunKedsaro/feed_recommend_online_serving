@@ -16,7 +16,7 @@ class RecommendationRequest(APIModel):
     student_id: str = Field(
         ...,
         min_length=1,
-        examples=["stu_p4198"],
+        examples=["71A1D3F7-9BB9-449F-90F7-28E62765860Z"],
     )
 
     category: str | None = Field(
@@ -43,5 +43,6 @@ class FeedsRecommendation(APIModel):
 class RecommendationResponse(APIModel):
     student_id: str
     source: str
+    category: str | None = None
     num_recommendations: int
     recommendations: list[FeedsRecommendation]

@@ -78,7 +78,7 @@ hyde:
 # --------------------------------------------------------------------------------------
 retrieval:
   top_k_per_query: 30
-  max_candidates: 5
+  max_candidates: 10
   agg_mode: WEIGHTED_MAX          # WEIGHTED_MAX | WEIGHTED_MEAN
   recency_half_life_days: 30.0
   include_feed_header: true       # include feed_header field in candidates

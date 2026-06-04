@@ -73,7 +73,7 @@ class RecommendationService:
     def __init__(self, settings: Settings) -> None:
         """Initialize the recommendation service with necessary clients and configurations."""
         self.settings = settings
-        self.verbose = 1
+        self.verbose = 0
 
         self.redis_cache = RedisCache(
             host=self.settings.cache.redis_host,
@@ -104,7 +104,8 @@ class RecommendationService:
         return f"recommendations:{student_id}"
     
     def filter_by_category(self, response, category):
-        print("Position : recommend_feeds.py/class RecommendationService/def filter_by_category")
+        print("Position : recommend_feeds.py/class RecommendationService/def filter_by_category") if self.verbose else None
+        response.category = category
         if not category:
             return response
         filtered = []
@@ -126,9 +127,9 @@ class RecommendationService:
         category: str
     ) -> tuple[RecommendationResponse, RecommendationDiagnostics]:
         """Get feed recommendations from cache, vector search, or fallback."""
-        print(f"Position : recommend_feeds.py/class RecommendationService/def recommend")
-        print(f"student_id : {student_id}")
-        print(f"category : {category}")
+        print(f"Position : recommend_feeds.py/class RecommendationService/def recommend")if self.verbose else None
+        print(f"student_id : {student_id}") if self.verbose else None
+        print(f"category : {category}")if self.verbose else None
 
         started = time.perf_counter()
         postprocess_timings = PostprocessTimings()
@@ -160,12 +161,12 @@ class RecommendationService:
                 t_top_up_merge=postprocess_timings.t_top_up_merge,
                 num_recommendations=[],
             )
-            print("#"*50)
-            print(f"pre-response  : {cached_response}")
+            print("#"*50) if self.verbose else None
+            print(f"pre-response  : {cached_response}") if self.verbose else None
             cached_response = self.filter_by_category(cached_response, category)
-            print("-"*50)
-            print(f"post-response : {cached_response}")
-            print("#"*50)
+            print("-"*50) if self.verbose else None
+            print(f"post-response : {cached_response}") if self.verbose else None
+            print("#"*50) if self.verbose else None
             return cached_response, diagnostics
         ### --------------------------- return cached response --------------------------- ###
 
@@ -197,12 +198,12 @@ class RecommendationService:
                 t_top_up_merge=postprocess_timings.t_top_up_merge,
                 num_recommendations=[],
             )
-            print("#"*50)
-            print(f"pre-response  : {response}")
+            print("#"*50) if self.verbose else None
+            print(f"pre-response  : {response}") if self.verbose else None
             response = self.filter_by_category(response, category)
-            print("-"*50)
-            print(f"post-response : {response}")
-            print("#"*50)
+            print("-"*50) if self.verbose else None
+            print(f"post-response : {response}") if self.verbose else None
+            print("#"*50) if self.verbose else None
 
             return response, diagnostics
         ### --------------------- return no embedding fallback response --------------------- ###
@@ -267,12 +268,12 @@ class RecommendationService:
                 t_top_up_merge=postprocess_timings.t_top_up_merge,
                 num_recommendations=num_recommendations,
             )
-            print("#"*50)
-            print(f"pre-response  : {response}")
+            print("#"*50) if self.verbose else None
+            print(f"pre-response  : {response}") if self.verbose else None
             response = self.filter_by_category(response, category)
-            print("-"*50)
-            print(f"post-response : {response}")
-            print("#"*50)
+            print("-"*50) if self.verbose else None
+            print(f"post-response : {response}") if self.verbose else None
+            print("#"*50) if self.verbose else None
             return response, diagnostics
             ### ------------------------- return vector search response ------------------------- ###
 
@@ -296,12 +297,12 @@ class RecommendationService:
                 t_top_up_merge=postprocess_timings.t_top_up_merge,
                 num_recommendations=[],
             )
-            print("#"*50)
-            print(f"pre-response  : {response}")
+            print("#"*50) if self.verbose else None
+            print(f"pre-response  : {response}") if self.verbose else None
             response = self.filter_by_category(response, category)
-            print("-"*50)
-            print(f"post-response : {response}")
-            print("#"*50)
+            print("-"*50) if self.verbose else None
+            print(f"post-response : {response}") if self.verbose else None
+            print("#"*50) if self.verbose else None
             return response, diagnostics
             ### ------------------ return vector search fail; fallback response ------------------ ###
 

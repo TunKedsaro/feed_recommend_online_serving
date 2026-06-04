@@ -17,7 +17,7 @@ from modules.utils.performance_logging import (
 
 app = FastAPI(
     title="Feed recommentdation Online serving",
-    version="1.1.1",
+    version="1.2.0",
     description=(
         "Feed recommendation Online serving part"
         "<br>"
@@ -121,7 +121,7 @@ def recommend(
             num_recommendations=diagnostics.num_recommendations,
             t_response_write=t_response_write,
         )
-        # print(f"response : {response}")
+        # print(f"response : {response.source}")
         return response
     except RuntimeError as exc:
         raise HTTPException(status_code=500, detail=str(exc)) from exc

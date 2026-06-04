@@ -1,0 +1,2152 @@
+[
+  {
+    "studentId": "44C07E40-6454-4B2A-A0EC-E9650D70DD29",
+    "requestedAtUtc": "2026-05-07T11:57:15.537208+00:00",
+    "completedAtUtc": "2026-05-07T11:57:15.648638+00:00",
+    "latencySeconds": 0.111419,
+    "statusCode": 200,
+    "response": {
+      "studentId": "44C07E40-6454-4B2A-A0EC-E9650D70DD29",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "AFDC106E-A5C9-413B-81AB-139838890A3E",
+          "score": 0.64565,
+          "metadata": {
+            "post_id": "AFDC106E-A5C9-413B-81AB-139838890A3E",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 11:00:00 UTC",
+            "post_topic": "การรับมือลูกค้ายากอย่างมืออาชีพ",
+            "post_content_body": "เทคนิคการจัดการข้อร้องเรียนและยกระดับความพึงพอใจของลูกค้า",
+            "post_tags": "[\"hospitality\",\"customer\",\n\"communication\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"hospitality\",\"skill\"]",
+            "num_click": 11000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 200,
+            "num_bookmark": 500
+          }
+        },
+        {
+          "feedId": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+          "score": 0.61277,
+          "metadata": {
+            "post_id": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 09:00:00 UTC",
+            "post_topic": "เตรียมตัวสัมภาษณ์งานอย่างไรให้พร้อม",
+            "post_content_body": "รวมคำถามสัมภาษณ์งานที่พบบ่อย วิธีตอบ และเทคนิคทำให้โดดเด่นในสายตาผู้สมัครงาน",
+            "post_tags": "[\"Interview\", \"งานสายอาชีพ\", \"งาน\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 25000,
+            "num_like": 1700,
+            "num_comment": 100,
+            "num_share": 700,
+            "num_bookmark": 1500
+          }
+        },
+        {
+          "feedId": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+          "score": 0.60311,
+          "metadata": {
+            "post_id": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 09:00:00 UTC",
+            "post_topic": "การบริหารเวลาสำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้วิธีจัดการเวลาอย่างมีประสิทธิภาพ สร้างสมดุลระหว่างการเรียนและชีวิต พร้อมเพิ่ม productivity",
+            "post_tags": "[\"productivity\", \"time management\", \"analysis\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"lifestyle\",\"skill\"]",
+            "num_click": 14000,
+            "num_like": 900,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+          "score": 0.590699,
+          "metadata": {
+            "post_id": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-22 13:00:00 UTC",
+            "post_topic": "คู่มือเส้นทางอาชีพสายกฎหมายระหว่างประเทศ",
+            "post_content_body": "ทำความเข้าใจเส้นทางอาชีพด้านกฎหมายระหว่างประเทศและองค์กรระดับโลก",
+            "post_tags": "[\"law\", \"งานสายอาชีพ\", \"International\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"law\",\"career\"]",
+            "num_click": 9000,
+            "num_like": 550,
+            "num_comment": 25,
+            "num_share": 160,
+            "num_bookmark": 320
+          }
+        },
+        {
+          "feedId": "A0D54F45-F211-40FA-AEE1-FCA3C727A74A",
+          "score": 0.588261,
+          "metadata": {
+            "post_id": "A0D54F45-F211-40FA-AEE1-FCA3C727A74A",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 09:00:00 UTC",
+            "post_topic": "พื้นฐานการจัดการงานปฏิบัติการโรงแรม",
+            "post_content_body": "เรียนรู้การทำงานของระบบปฏิบัติการในโรงแรม ตั้งแต่ Front Desk, งานแม่บ้าน และบริการลูกค้า",
+            "post_tags": "[\"hospitality\",\"operations\",\n\"hotel\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"hospitality\",\"การศึกษา\"]",
+            "num_click": 9000,
+            "num_like": 550,
+            "num_comment": 30,
+            "num_share": 170,
+            "num_bookmark": 350
+          }
+        },
+        {
+          "feedId": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+          "score": 0.561465,
+          "metadata": {
+            "post_id": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-02 09:00:00 UTC",
+            "post_topic": "คู่มือทำพอร์ต AI",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ต AI ด้วยโปรเจกต์จริง เพื่อสร้างความประทับใจให้ผู้สมัครงานและคว้างานแรกให้ได้",
+            "post_tags": "[\"AI\", \"งานสายอาชีพ\", \"portfolio\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\", \"เทคโนโลยี\"]",
+            "num_click": 15000,
+            "num_like": 900,
+            "num_comment": 40,
+            "num_share": 320,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "E32C2C84-0834-4A66-8509-0902B3EE652C",
+          "score": 0.548754,
+          "metadata": {
+            "post_id": "E32C2C84-0834-4A66-8509-0902B3EE652C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 13:00:00 UTC",
+            "post_topic": "ออกแบบระบบให้รองรับการขยายด้วย AWS",
+            "post_content_body": "เรียนรู้การออกแบบระบบ Backend ที่รองรับการขยายตัวด้วย AWS, Microservices และ Cloud Architecture",
+            "post_tags": "[\"aws\",\"system_design\",\"backend\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"เทคโนโลยี\",\"career\"]",
+            "num_click": 17000,
+            "num_like": 1100,
+            "num_comment": 55,
+            "num_share": 350,
+            "num_bookmark": 800
+          }
+        },
+        {
+          "feedId": "3A283662-D083-49E1-A61B-07652F28B97B",
+          "score": 0.53908,
+          "metadata": {
+            "post_id": "3A283662-D083-49E1-A61B-07652F28B97B",
+            "post_status": "EXPIRED",
+            "is_valid": false,
+            "post_created_at": "2026-04-06 08:00:00 UTC",
+            "post_topic": "ทุนการศึกษาปี 2026",
+            "post_content_body": "รวมทุนการศึกษาที่เปิดรับ พร้อมกำหนดเวลาและเงื่อนไขการสมัคร",
+            "post_tags": "[\"scholarship\", \"การศึกษา\", \"เรียนต่อต่างประเทศ\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 25000,
+            "num_like": 1400,
+            "num_comment": 70,
+            "num_share": 600,
+            "num_bookmark": 1000
+          }
+        },
+        {
+          "feedId": "66113F20-27FF-4483-A6AD-82EC7E885739",
+          "score": 0.523557,
+          "metadata": {
+            "post_id": "66113F20-27FF-4483-A6AD-82EC7E885739",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-13 10:00:00 UTC",
+            "post_topic": "พื้นฐานการสร้าง Startup สำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้พื้นฐานผู้ประกอบการ การตรวจสอบไอเดียธุรกิจ และการเริ่มสร้าง Startup แรกของคุณ",
+            "post_tags": "[\"startup\",\"business\",\n\"entrepreneur\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"business\",\"career\"]",
+            "num_click": 13000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 250,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "9AEB5F78-B83C-447E-90EA-724F10A21EFD",
+          "score": 0.504674,
+          "metadata": {
+            "post_id": "9AEB5F78-B83C-447E-90EA-724F10A21EFD",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-03 14:30:00 UTC",
+            "post_topic": "เทคนิคเขียนเรซูเม่สาย data science",
+            "post_content_body": "เทคนิคสำคัญในการเขียนเรซูเม่สาย data science ให้โดดเด่น ผ่านการคัดกรอง และได้โอกาสสัมภาษณ์",
+            "post_tags": "[\"ฝึกงาน\", \"data_science\", \n\"resume\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"career\", \"ฝึกงาน\"]",
+            "num_click": 13000,
+            "num_like": 750,
+            "num_comment": 35,
+            "num_share": 250,
+            "num_bookmark": 500
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "6508F158-7BC6-4438-8807-5A0B98FEE9C3",
+    "requestedAtUtc": "2026-05-07T11:57:15.648904+00:00",
+    "completedAtUtc": "2026-05-07T11:57:15.699369+00:00",
+    "latencySeconds": 0.050457,
+    "statusCode": 200,
+    "response": {
+      "studentId": "6508F158-7BC6-4438-8807-5A0B98FEE9C3",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "BA18415F-02D8-4AF7-86A1-236ACC374416",
+          "score": 0.650454,
+          "metadata": {
+            "post_id": "BA18415F-02D8-4AF7-86A1-236ACC374416",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 16:00:00 UTC",
+            "post_topic": "อาชีพในสายวิทยาศาสตร์สิ่งแวดล้อม",
+            "post_content_body": "สำรวจบทบาทงานด้านความยั่งยืน องค์กร NGO และที่ปรึกษาด้านสิ่งแวดล้อม",
+            "post_tags": "[\"environment\", \"งานสายอาชีพ\", \"science\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"science\",\"career\"]",
+            "num_click": 10000,
+            "num_like": 650,
+            "num_comment": 35,
+            "num_share": 200,
+            "num_bookmark": 420
+          }
+        },
+        {
+          "feedId": "FE5B8989-F85C-40B6-92E6-19556D14AAAF",
+          "score": 0.634704,
+          "metadata": {
+            "post_id": "FE5B8989-F85C-40B6-92E6-19556D14AAAF",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 14:00:00 UTC",
+            "post_topic": "วิธีวิจัยด้านการเปลี่ยนแปลงสภาพภูมิอากาศ",
+            "post_content_body": "แนะนำการเก็บข้อมูลภาคสนามและเทคนิคการวิเคราะห์สิ่งแวดล้อมเบื้องต้น",
+            "post_tags": "[\"science\",\"environment\",\n\"research\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"science\", \"การศึกษา\"]",
+            "num_click": 9500,
+            "num_like": 600,
+            "num_comment": 30,
+            "num_share": 180,
+            "num_bookmark": 400
+          }
+        },
+        {
+          "feedId": "81FD1001-FCF5-4D2F-BA66-8B6C8D32315A",
+          "score": 0.627693,
+          "metadata": {
+            "post_id": "81FD1001-FCF5-4D2F-BA66-8B6C8D32315A",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-14 11:00:00 UTC",
+            "post_topic": "คู่มืออาชีพสายความยั่งยืน",
+            "post_content_body": "สำรวจเส้นทางอาชีพด้านวิทยาศาสตร์สิ่งแวดล้อมและอุตสาหกรรมความยั่งยืน",
+            "post_tags": "[\"environment\", \"งานสายอาชีพ\", \"sustainability\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 12000,
+            "num_like": 650,
+            "num_comment": 35,
+            "num_share": 200,
+            "num_bookmark": 450
+          }
+        },
+        {
+          "feedId": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+          "score": 0.604362,
+          "metadata": {
+            "post_id": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 09:00:00 UTC",
+            "post_topic": "เตรียมตัวสัมภาษณ์งานอย่างไรให้พร้อม",
+            "post_content_body": "รวมคำถามสัมภาษณ์งานที่พบบ่อย วิธีตอบ และเทคนิคทำให้โดดเด่นในสายตาผู้สมัครงาน",
+            "post_tags": "[\"Interview\", \"งานสายอาชีพ\", \"งาน\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 25000,
+            "num_like": 1700,
+            "num_comment": 100,
+            "num_share": 700,
+            "num_bookmark": 1500
+          }
+        },
+        {
+          "feedId": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+          "score": 0.602321,
+          "metadata": {
+            "post_id": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-22 13:00:00 UTC",
+            "post_topic": "คู่มือเส้นทางอาชีพสายกฎหมายระหว่างประเทศ",
+            "post_content_body": "ทำความเข้าใจเส้นทางอาชีพด้านกฎหมายระหว่างประเทศและองค์กรระดับโลก",
+            "post_tags": "[\"law\", \"งานสายอาชีพ\", \"International\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"law\",\"career\"]",
+            "num_click": 9000,
+            "num_like": 550,
+            "num_comment": 25,
+            "num_share": 160,
+            "num_bookmark": 320
+          }
+        },
+        {
+          "feedId": "0AC0E9D0-400C-4566-B7D7-A204558D96BA",
+          "score": 0.601306,
+          "metadata": {
+            "post_id": "0AC0E9D0-400C-4566-B7D7-A204558D96BA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-22 10:00:00 UTC",
+            "post_topic": "เส้นทางอาชีพในอุตสาหกรรมดนตรี",
+            "post_content_body": "สำรวจเส้นทางอาชีพที่หลากหลายในวงการดนตรีและอุตสาหกรรมบันเทิง",
+            "post_tags": "[\"music\",\"career\",\"industry\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"art\",\"career\"]",
+            "num_click": 9500,
+            "num_like": 600,
+            "num_comment": 30,
+            "num_share": 180,
+            "num_bookmark": 350
+          }
+        },
+        {
+          "feedId": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+          "score": 0.566882,
+          "metadata": {
+            "post_id": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-02 09:00:00 UTC",
+            "post_topic": "คู่มือทำพอร์ต AI",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ต AI ด้วยโปรเจกต์จริง เพื่อสร้างความประทับใจให้ผู้สมัครงานและคว้างานแรกให้ได้",
+            "post_tags": "[\"AI\", \"งานสายอาชีพ\", \"portfolio\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\", \"เทคโนโลยี\"]",
+            "num_click": 15000,
+            "num_like": 900,
+            "num_comment": 40,
+            "num_share": 320,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "3A283662-D083-49E1-A61B-07652F28B97B",
+          "score": 0.546166,
+          "metadata": {
+            "post_id": "3A283662-D083-49E1-A61B-07652F28B97B",
+            "post_status": "EXPIRED",
+            "is_valid": false,
+            "post_created_at": "2026-04-06 08:00:00 UTC",
+            "post_topic": "ทุนการศึกษาปี 2026",
+            "post_content_body": "รวมทุนการศึกษาที่เปิดรับ พร้อมกำหนดเวลาและเงื่อนไขการสมัคร",
+            "post_tags": "[\"scholarship\", \"การศึกษา\", \"เรียนต่อต่างประเทศ\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 25000,
+            "num_like": 1400,
+            "num_comment": 70,
+            "num_share": 600,
+            "num_bookmark": 1000
+          }
+        },
+        {
+          "feedId": "401BEA15-5249-4DE5-B83E-B617B91BECC2",
+          "score": 0.538512,
+          "metadata": {
+            "post_id": "401BEA15-5249-4DE5-B83E-B617B91BECC2",
+            "post_status": "EXPIRED",
+            "is_valid": false,
+            "post_created_at": "2026-04-01 08:00:00 UTC",
+            "post_topic": "ทุนเรียนต่อต่างประเทศ 2025",
+            "post_content_body": "รวมทุนเรียนต่อต่างประเทศ พร้อมรายละเอียดการสมัครและกำหนดการ",
+            "post_tags": "[\"scholarship\",\"study_abroad\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"education\"]",
+            "num_click": 30000,
+            "num_like": 2000,
+            "num_comment": 120,
+            "num_share": 900,
+            "num_bookmark": 1800
+          }
+        },
+        {
+          "feedId": "9AEB5F78-B83C-447E-90EA-724F10A21EFD",
+          "score": 0.534737,
+          "metadata": {
+            "post_id": "9AEB5F78-B83C-447E-90EA-724F10A21EFD",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-03 14:30:00 UTC",
+            "post_topic": "เทคนิคเขียนเรซูเม่สาย data science",
+            "post_content_body": "เทคนิคสำคัญในการเขียนเรซูเม่สาย data science ให้โดดเด่น ผ่านการคัดกรอง และได้โอกาสสัมภาษณ์",
+            "post_tags": "[\"ฝึกงาน\", \"data_science\", \n\"resume\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"career\", \"ฝึกงาน\"]",
+            "num_click": 13000,
+            "num_like": 750,
+            "num_comment": 35,
+            "num_share": 250,
+            "num_bookmark": 500
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "6786B7E4-FBC3-4598-98C2-1294D5E884EC",
+    "requestedAtUtc": "2026-05-07T11:57:15.699649+00:00",
+    "completedAtUtc": "2026-05-07T11:57:15.750635+00:00",
+    "latencySeconds": 0.050971,
+    "statusCode": 200,
+    "response": {
+      "studentId": "6786B7E4-FBC3-4598-98C2-1294D5E884EC",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+          "score": 0.622897,
+          "metadata": {
+            "post_id": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 09:00:00 UTC",
+            "post_topic": "เริ่มต้น Python สำหรับมือใหม่",
+            "post_content_body": "เริ่มต้นเส้นทางการเขียนโปรแกรมด้วย Python เรียนรู้ Syntax, Variables และโปรเจกต์ง่าย ๆ",
+            "post_tags": "[\"python\",\"beginner\",\"coding\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 18000,
+            "num_like": 1200,
+            "num_comment": 60,
+            "num_share": 400,
+            "num_bookmark": 900
+          }
+        },
+        {
+          "feedId": "2C493134-A654-46CF-AAAB-7EC4B41A98B8",
+          "score": 0.584941,
+          "metadata": {
+            "post_id": "2C493134-A654-46CF-AAAB-7EC4B41A98B8",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-05 16:00:00 UTC",
+            "post_topic": "โปรเจกต์ Machine learning สำหรับมือใหม่",
+            "post_content_body": "ไอเดียโปรเจกต์ Machine learning แบบง่ายสำหรับผู้เริ่มต้นด้วย Python ไม่ต้องมีประสบการณ์มาก่อน เหมาะสำหรับนักศึกษาปี 1 ที่เริ่มต้นเส้นทางสาย AI",
+            "post_tags": "[\"machine_learning\", \n\"beginner\", \"python\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 12000,
+            "num_like": 700,
+            "num_comment": 25,
+            "num_share": 200,
+            "num_bookmark": 500
+          }
+        },
+        {
+          "feedId": "E32C2C84-0834-4A66-8509-0902B3EE652C",
+          "score": 0.56416,
+          "metadata": {
+            "post_id": "E32C2C84-0834-4A66-8509-0902B3EE652C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 13:00:00 UTC",
+            "post_topic": "ออกแบบระบบให้รองรับการขยายด้วย AWS",
+            "post_content_body": "เรียนรู้การออกแบบระบบ Backend ที่รองรับการขยายตัวด้วย AWS, Microservices และ Cloud Architecture",
+            "post_tags": "[\"aws\",\"system_design\",\"backend\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"เทคโนโลยี\",\"career\"]",
+            "num_click": 17000,
+            "num_like": 1100,
+            "num_comment": 55,
+            "num_share": 350,
+            "num_bookmark": 800
+          }
+        },
+        {
+          "feedId": "BA18415F-02D8-4AF7-86A1-236ACC374416",
+          "score": 0.560173,
+          "metadata": {
+            "post_id": "BA18415F-02D8-4AF7-86A1-236ACC374416",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 16:00:00 UTC",
+            "post_topic": "อาชีพในสายวิทยาศาสตร์สิ่งแวดล้อม",
+            "post_content_body": "สำรวจบทบาทงานด้านความยั่งยืน องค์กร NGO และที่ปรึกษาด้านสิ่งแวดล้อม",
+            "post_tags": "[\"environment\", \"งานสายอาชีพ\", \"science\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"science\",\"career\"]",
+            "num_click": 10000,
+            "num_like": 650,
+            "num_comment": 35,
+            "num_share": 200,
+            "num_bookmark": 420
+          }
+        },
+        {
+          "feedId": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+          "score": 0.5552,
+          "metadata": {
+            "post_id": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-22 13:00:00 UTC",
+            "post_topic": "คู่มือเส้นทางอาชีพสายกฎหมายระหว่างประเทศ",
+            "post_content_body": "ทำความเข้าใจเส้นทางอาชีพด้านกฎหมายระหว่างประเทศและองค์กรระดับโลก",
+            "post_tags": "[\"law\", \"งานสายอาชีพ\", \"International\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"law\",\"career\"]",
+            "num_click": 9000,
+            "num_like": 550,
+            "num_comment": 25,
+            "num_share": 160,
+            "num_bookmark": 320
+          }
+        },
+        {
+          "feedId": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+          "score": 0.551388,
+          "metadata": {
+            "post_id": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 09:00:00 UTC",
+            "post_topic": "เตรียมตัวสัมภาษณ์งานอย่างไรให้พร้อม",
+            "post_content_body": "รวมคำถามสัมภาษณ์งานที่พบบ่อย วิธีตอบ และเทคนิคทำให้โดดเด่นในสายตาผู้สมัครงาน",
+            "post_tags": "[\"Interview\", \"งานสายอาชีพ\", \"งาน\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 25000,
+            "num_like": 1700,
+            "num_comment": 100,
+            "num_share": 700,
+            "num_bookmark": 1500
+          }
+        },
+        {
+          "feedId": "BF0491FD-D028-464C-8CD3-9AB2D7CFC65D",
+          "score": 0.547837,
+          "metadata": {
+            "post_id": "BF0491FD-D028-464C-8CD3-9AB2D7CFC65D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-11 10:30:00 UTC",
+            "post_topic": "สร้างโปรเจกต์ AI แรกของคุณ",
+            "post_content_body": "คู่มือทีละขั้นตอนในการสร้างโปรเจกต์ Machine learning ด้วย Python และชุดข้อมูลจริง\nlearning project using Python and real datasets.",
+            "post_tags": "[\"ai\",\"machine_learning\",\n\"project\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\",\"เทคโนโลยี\"]",
+            "num_click": 20000,
+            "num_like": 1500,
+            "num_comment": 80,
+            "num_share": 500,
+            "num_bookmark": 1200
+          }
+        },
+        {
+          "feedId": "E435C73A-3DBB-4B0F-A1B0-99D92D2186CF",
+          "score": 0.546102,
+          "metadata": {
+            "post_id": "E435C73A-3DBB-4B0F-A1B0-99D92D2186CF",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 12:00:00 UTC",
+            "post_topic": "พื้นฐานการออกแบบวงจรไฟฟ้า",
+            "post_content_body": "เข้าใจอุปกรณ์พื้นฐานในวงจร กฎของโอห์ม และการออกแบบระบบไฟฟ้าเบื้องต้น",
+            "post_tags": "[\"engineering\",\"วงจรไฟฟ้า\",\n\"electrical\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 14000,
+            "num_like": 800,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 650
+          }
+        },
+        {
+          "feedId": "81FD1001-FCF5-4D2F-BA66-8B6C8D32315A",
+          "score": 0.544741,
+          "metadata": {
+            "post_id": "81FD1001-FCF5-4D2F-BA66-8B6C8D32315A",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-14 11:00:00 UTC",
+            "post_topic": "คู่มืออาชีพสายความยั่งยืน",
+            "post_content_body": "สำรวจเส้นทางอาชีพด้านวิทยาศาสตร์สิ่งแวดล้อมและอุตสาหกรรมความยั่งยืน",
+            "post_tags": "[\"environment\", \"งานสายอาชีพ\", \"sustainability\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 12000,
+            "num_like": 650,
+            "num_comment": 35,
+            "num_share": 200,
+            "num_bookmark": 450
+          }
+        },
+        {
+          "feedId": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+          "score": 0.52393,
+          "metadata": {
+            "post_id": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-02 09:00:00 UTC",
+            "post_topic": "คู่มือทำพอร์ต AI",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ต AI ด้วยโปรเจกต์จริง เพื่อสร้างความประทับใจให้ผู้สมัครงานและคว้างานแรกให้ได้",
+            "post_tags": "[\"AI\", \"งานสายอาชีพ\", \"portfolio\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\", \"เทคโนโลยี\"]",
+            "num_click": 15000,
+            "num_like": 900,
+            "num_comment": 40,
+            "num_share": 320,
+            "num_bookmark": 600
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "67E450B2-9AFE-4939-906E-57E556DE3071",
+    "requestedAtUtc": "2026-05-07T11:57:15.751047+00:00",
+    "completedAtUtc": "2026-05-07T11:57:15.800364+00:00",
+    "latencySeconds": 0.049306,
+    "statusCode": 200,
+    "response": {
+      "studentId": "67E450B2-9AFE-4939-906E-57E556DE3071",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "3CDFD62B-B213-4B5C-8127-26185602C540",
+          "score": 0.620454,
+          "metadata": {
+            "post_id": "3CDFD62B-B213-4B5C-8127-26185602C540",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 13:00:00 UTC",
+            "post_topic": "เทคนิคการเรียนอย่างมีประสิทธิภาพสำหรับนักศึกษา",
+            "post_content_body": "พัฒนาความจำ สมาธิ และผลการสอบให้ดีขึ้นด้วยวิธีการเรียนที่พิสูจน์แล้วว่าได้ผล",
+            "post_tags": "[\"analysis\", \"การศึกษา\", \"learning\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 13000,
+            "num_like": 900,
+            "num_comment": 50,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "5630C496-7269-4F60-9F69-84F6FF03298A",
+          "score": 0.609066,
+          "metadata": {
+            "post_id": "5630C496-7269-4F60-9F69-84F6FF03298A",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-13 15:00:00 UTC",
+            "post_topic": "เทคนิคการแสดงดนตรี",
+            "post_content_body": "พัฒนาทักษะการแสดงบนเวทีและเพิ่มความมั่นใจในฐานะนักดนตรี",
+            "post_tags": "[\"music\",\"performance\",\"art\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"lifestyle\"]",
+            "num_click": 9000,
+            "num_like": 500,
+            "num_comment": 30,
+            "num_share": 150,
+            "num_bookmark": 300
+          }
+        },
+        {
+          "feedId": "3D561F24-0BBD-4DCD-8038-C26CC376DCA5",
+          "score": 0.608965,
+          "metadata": {
+            "post_id": "3D561F24-0BBD-4DCD-8038-C26CC376DCA5",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 11:00:00 UTC",
+            "post_topic": "เรียนรู้อะไรก็ได้ให้เร็วขึ้น",
+            "post_content_body": "ค้นพบเทคนิคที่พิสูจน์แล้วว่าสามารถช่วยให้เรียนรู้ทักษะใหม่ได้เร็วขึ้น และจดจำความรู้ได้นานขึ้น",
+            "post_tags": "[\"learning\",\"self_improvement\"\n,\"education\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"learning\",\n\"พัฒนาตัวเอง\",\"การศึกษา\"]",
+            "num_click": 15000,
+            "num_like": 1000,
+            "num_comment": 50,
+            "num_share": 320,
+            "num_bookmark": 800
+          }
+        },
+        {
+          "feedId": "0AC0E9D0-400C-4566-B7D7-A204558D96BA",
+          "score": 0.581018,
+          "metadata": {
+            "post_id": "0AC0E9D0-400C-4566-B7D7-A204558D96BA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-22 10:00:00 UTC",
+            "post_topic": "เส้นทางอาชีพในอุตสาหกรรมดนตรี",
+            "post_content_body": "สำรวจเส้นทางอาชีพที่หลากหลายในวงการดนตรีและอุตสาหกรรมบันเทิง",
+            "post_tags": "[\"music\",\"career\",\"industry\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"art\",\"career\"]",
+            "num_click": 9500,
+            "num_like": 600,
+            "num_comment": 30,
+            "num_share": 180,
+            "num_bookmark": 350
+          }
+        },
+        {
+          "feedId": "7D589A11-61BE-4692-B3DF-9A08FDE915B0",
+          "score": 0.567565,
+          "metadata": {
+            "post_id": "7D589A11-61BE-4692-B3DF-9A08FDE915B0",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-21 16:00:00 UTC",
+            "post_topic": "พอร์ตสร้างสรรค์สำหรับนักดนตรี",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ตดนตรีให้น่าสนใจ สำหรับการออดิชันและโอกาสทางอาชีพ",
+            "post_tags": "[\"music\",\"portfolio\",\"art\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"art\",\"career\"]",
+            "num_click": 8000,
+            "num_like": 500,
+            "num_comment": 25,
+            "num_share": 150,
+            "num_bookmark": 300
+          }
+        },
+        {
+          "feedId": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+          "score": 0.556485,
+          "metadata": {
+            "post_id": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-22 13:00:00 UTC",
+            "post_topic": "คู่มือเส้นทางอาชีพสายกฎหมายระหว่างประเทศ",
+            "post_content_body": "ทำความเข้าใจเส้นทางอาชีพด้านกฎหมายระหว่างประเทศและองค์กรระดับโลก",
+            "post_tags": "[\"law\", \"งานสายอาชีพ\", \"International\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"law\",\"career\"]",
+            "num_click": 9000,
+            "num_like": 550,
+            "num_comment": 25,
+            "num_share": 160,
+            "num_bookmark": 320
+          }
+        },
+        {
+          "feedId": "BA18415F-02D8-4AF7-86A1-236ACC374416",
+          "score": 0.553534,
+          "metadata": {
+            "post_id": "BA18415F-02D8-4AF7-86A1-236ACC374416",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 16:00:00 UTC",
+            "post_topic": "อาชีพในสายวิทยาศาสตร์สิ่งแวดล้อม",
+            "post_content_body": "สำรวจบทบาทงานด้านความยั่งยืน องค์กร NGO และที่ปรึกษาด้านสิ่งแวดล้อม",
+            "post_tags": "[\"environment\", \"งานสายอาชีพ\", \"science\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"science\",\"career\"]",
+            "num_click": 10000,
+            "num_like": 650,
+            "num_comment": 35,
+            "num_share": 200,
+            "num_bookmark": 420
+          }
+        },
+        {
+          "feedId": "81FD1001-FCF5-4D2F-BA66-8B6C8D32315A",
+          "score": 0.538719,
+          "metadata": {
+            "post_id": "81FD1001-FCF5-4D2F-BA66-8B6C8D32315A",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-14 11:00:00 UTC",
+            "post_topic": "คู่มืออาชีพสายความยั่งยืน",
+            "post_content_body": "สำรวจเส้นทางอาชีพด้านวิทยาศาสตร์สิ่งแวดล้อมและอุตสาหกรรมความยั่งยืน",
+            "post_tags": "[\"environment\", \"งานสายอาชีพ\", \"sustainability\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 12000,
+            "num_like": 650,
+            "num_comment": 35,
+            "num_share": 200,
+            "num_bookmark": 450
+          }
+        },
+        {
+          "feedId": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+          "score": 0.5363,
+          "metadata": {
+            "post_id": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 09:00:00 UTC",
+            "post_topic": "เตรียมตัวสัมภาษณ์งานอย่างไรให้พร้อม",
+            "post_content_body": "รวมคำถามสัมภาษณ์งานที่พบบ่อย วิธีตอบ และเทคนิคทำให้โดดเด่นในสายตาผู้สมัครงาน",
+            "post_tags": "[\"Interview\", \"งานสายอาชีพ\", \"งาน\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 25000,
+            "num_like": 1700,
+            "num_comment": 100,
+            "num_share": 700,
+            "num_bookmark": 1500
+          }
+        },
+        {
+          "feedId": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+          "score": 0.512257,
+          "metadata": {
+            "post_id": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-02 09:00:00 UTC",
+            "post_topic": "คู่มือทำพอร์ต AI",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ต AI ด้วยโปรเจกต์จริง เพื่อสร้างความประทับใจให้ผู้สมัครงานและคว้างานแรกให้ได้",
+            "post_tags": "[\"AI\", \"งานสายอาชีพ\", \"portfolio\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\", \"เทคโนโลยี\"]",
+            "num_click": 15000,
+            "num_like": 900,
+            "num_comment": 40,
+            "num_share": 320,
+            "num_bookmark": 600
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "6F2D8FE2-632F-4E4E-98EB-59DC8AFBBB94",
+    "requestedAtUtc": "2026-05-07T11:57:15.800865+00:00",
+    "completedAtUtc": "2026-05-07T11:57:15.853000+00:00",
+    "latencySeconds": 0.052121,
+    "statusCode": 200,
+    "response": {
+      "studentId": "6F2D8FE2-632F-4E4E-98EB-59DC8AFBBB94",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "9E78E021-A7E1-443E-A92F-25A35658F0CB",
+          "score": 0.645296,
+          "metadata": {
+            "post_id": "9E78E021-A7E1-443E-A92F-25A35658F0CB",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 09:00:00 UTC",
+            "post_topic": "อธิบาย Business Model Canvas แบบเข้าใจง่าย",
+            "post_content_body": "เรียนรู้การออกแบบและตรวจสอบไอเดียธุรกิจด้วย BMC",
+            "post_tags": "[\"business\",\"strategy\",\"startup\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"business\",\"การศึกษา\"]",
+            "num_click": 12000,
+            "num_like": 800,
+            "num_comment": 45,
+            "num_share": 250,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "66113F20-27FF-4483-A6AD-82EC7E885739",
+          "score": 0.619451,
+          "metadata": {
+            "post_id": "66113F20-27FF-4483-A6AD-82EC7E885739",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-13 10:00:00 UTC",
+            "post_topic": "พื้นฐานการสร้าง Startup สำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้พื้นฐานผู้ประกอบการ การตรวจสอบไอเดียธุรกิจ และการเริ่มสร้าง Startup แรกของคุณ",
+            "post_tags": "[\"startup\",\"business\",\n\"entrepreneur\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"business\",\"career\"]",
+            "num_click": 13000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 250,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "3D561F24-0BBD-4DCD-8038-C26CC376DCA5",
+          "score": 0.610499,
+          "metadata": {
+            "post_id": "3D561F24-0BBD-4DCD-8038-C26CC376DCA5",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 11:00:00 UTC",
+            "post_topic": "เรียนรู้อะไรก็ได้ให้เร็วขึ้น",
+            "post_content_body": "ค้นพบเทคนิคที่พิสูจน์แล้วว่าสามารถช่วยให้เรียนรู้ทักษะใหม่ได้เร็วขึ้น และจดจำความรู้ได้นานขึ้น",
+            "post_tags": "[\"learning\",\"self_improvement\"\n,\"education\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"learning\",\n\"พัฒนาตัวเอง\",\"การศึกษา\"]",
+            "num_click": 15000,
+            "num_like": 1000,
+            "num_comment": 50,
+            "num_share": 320,
+            "num_bookmark": 800
+          }
+        },
+        {
+          "feedId": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+          "score": 0.607137,
+          "metadata": {
+            "post_id": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 09:00:00 UTC",
+            "post_topic": "การบริหารเวลาสำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้วิธีจัดการเวลาอย่างมีประสิทธิภาพ สร้างสมดุลระหว่างการเรียนและชีวิต พร้อมเพิ่ม productivity",
+            "post_tags": "[\"productivity\", \"time management\", \"analysis\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"lifestyle\",\"skill\"]",
+            "num_click": 14000,
+            "num_like": 900,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "5936108A-FF03-4573-B7DE-2611B3DD128E",
+          "score": 0.580532,
+          "metadata": {
+            "post_id": "5936108A-FF03-4573-B7DE-2611B3DD128E",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 11:00:00 UTC",
+            "post_topic": "พื้นฐานการตลาดสำหรับมือใหม่",
+            "post_content_body": "เข้าใจเรื่อง Branding, Positioning และพื้นฐาน Digital Marketing",
+            "post_tags": "[\"marketing\",\"business\",\n\"branding\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"business\",\"การศึกษา\"]",
+            "num_click": 11000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 220,
+            "num_bookmark": 550
+          }
+        },
+        {
+          "feedId": "3CDFD62B-B213-4B5C-8127-26185602C540",
+          "score": 0.566497,
+          "metadata": {
+            "post_id": "3CDFD62B-B213-4B5C-8127-26185602C540",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 13:00:00 UTC",
+            "post_topic": "เทคนิคการเรียนอย่างมีประสิทธิภาพสำหรับนักศึกษา",
+            "post_content_body": "พัฒนาความจำ สมาธิ และผลการสอบให้ดีขึ้นด้วยวิธีการเรียนที่พิสูจน์แล้วว่าได้ผล",
+            "post_tags": "[\"analysis\", \"การศึกษา\", \"learning\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 13000,
+            "num_like": 900,
+            "num_comment": 50,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "AFDC106E-A5C9-413B-81AB-139838890A3E",
+          "score": 0.555717,
+          "metadata": {
+            "post_id": "AFDC106E-A5C9-413B-81AB-139838890A3E",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 11:00:00 UTC",
+            "post_topic": "การรับมือลูกค้ายากอย่างมืออาชีพ",
+            "post_content_body": "เทคนิคการจัดการข้อร้องเรียนและยกระดับความพึงพอใจของลูกค้า",
+            "post_tags": "[\"hospitality\",\"customer\",\n\"communication\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"hospitality\",\"skill\"]",
+            "num_click": 11000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 200,
+            "num_bookmark": 500
+          }
+        },
+        {
+          "feedId": "3A283662-D083-49E1-A61B-07652F28B97B",
+          "score": 0.548455,
+          "metadata": {
+            "post_id": "3A283662-D083-49E1-A61B-07652F28B97B",
+            "post_status": "EXPIRED",
+            "is_valid": false,
+            "post_created_at": "2026-04-06 08:00:00 UTC",
+            "post_topic": "ทุนการศึกษาปี 2026",
+            "post_content_body": "รวมทุนการศึกษาที่เปิดรับ พร้อมกำหนดเวลาและเงื่อนไขการสมัคร",
+            "post_tags": "[\"scholarship\", \"การศึกษา\", \"เรียนต่อต่างประเทศ\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 25000,
+            "num_like": 1400,
+            "num_comment": 70,
+            "num_share": 600,
+            "num_bookmark": 1000
+          }
+        },
+        {
+          "feedId": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+          "score": 0.536079,
+          "metadata": {
+            "post_id": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 09:00:00 UTC",
+            "post_topic": "เตรียมตัวสัมภาษณ์งานอย่างไรให้พร้อม",
+            "post_content_body": "รวมคำถามสัมภาษณ์งานที่พบบ่อย วิธีตอบ และเทคนิคทำให้โดดเด่นในสายตาผู้สมัครงาน",
+            "post_tags": "[\"Interview\", \"งานสายอาชีพ\", \"งาน\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 25000,
+            "num_like": 1700,
+            "num_comment": 100,
+            "num_share": 700,
+            "num_bookmark": 1500
+          }
+        },
+        {
+          "feedId": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+          "score": 0.51261,
+          "metadata": {
+            "post_id": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-02 09:00:00 UTC",
+            "post_topic": "คู่มือทำพอร์ต AI",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ต AI ด้วยโปรเจกต์จริง เพื่อสร้างความประทับใจให้ผู้สมัครงานและคว้างานแรกให้ได้",
+            "post_tags": "[\"AI\", \"งานสายอาชีพ\", \"portfolio\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\", \"เทคโนโลยี\"]",
+            "num_click": 15000,
+            "num_like": 900,
+            "num_comment": 40,
+            "num_share": 320,
+            "num_bookmark": 600
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "71A1D3F7-9BB9-449F-90F7-28E62765860B",
+    "requestedAtUtc": "2026-05-07T11:57:15.853446+00:00",
+    "completedAtUtc": "2026-05-07T11:57:15.909814+00:00",
+    "latencySeconds": 0.056353,
+    "statusCode": 200,
+    "response": {
+      "studentId": "71A1D3F7-9BB9-449F-90F7-28E62765860B",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+          "score": 0.593654,
+          "metadata": {
+            "post_id": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 09:00:00 UTC",
+            "post_topic": "การบริหารเวลาสำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้วิธีจัดการเวลาอย่างมีประสิทธิภาพ สร้างสมดุลระหว่างการเรียนและชีวิต พร้อมเพิ่ม productivity",
+            "post_tags": "[\"productivity\", \"time management\", \"analysis\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"lifestyle\",\"skill\"]",
+            "num_click": 14000,
+            "num_like": 900,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "E32C2C84-0834-4A66-8509-0902B3EE652C",
+          "score": 0.560776,
+          "metadata": {
+            "post_id": "E32C2C84-0834-4A66-8509-0902B3EE652C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 13:00:00 UTC",
+            "post_topic": "ออกแบบระบบให้รองรับการขยายด้วย AWS",
+            "post_content_body": "เรียนรู้การออกแบบระบบ Backend ที่รองรับการขยายตัวด้วย AWS, Microservices และ Cloud Architecture",
+            "post_tags": "[\"aws\",\"system_design\",\"backend\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"เทคโนโลยี\",\"career\"]",
+            "num_click": 17000,
+            "num_like": 1100,
+            "num_comment": 55,
+            "num_share": 350,
+            "num_bookmark": 800
+          }
+        },
+        {
+          "feedId": "3CDFD62B-B213-4B5C-8127-26185602C540",
+          "score": 0.557004,
+          "metadata": {
+            "post_id": "3CDFD62B-B213-4B5C-8127-26185602C540",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 13:00:00 UTC",
+            "post_topic": "เทคนิคการเรียนอย่างมีประสิทธิภาพสำหรับนักศึกษา",
+            "post_content_body": "พัฒนาความจำ สมาธิ และผลการสอบให้ดีขึ้นด้วยวิธีการเรียนที่พิสูจน์แล้วว่าได้ผล",
+            "post_tags": "[\"analysis\", \"การศึกษา\", \"learning\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 13000,
+            "num_like": 900,
+            "num_comment": 50,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "66113F20-27FF-4483-A6AD-82EC7E885739",
+          "score": 0.536472,
+          "metadata": {
+            "post_id": "66113F20-27FF-4483-A6AD-82EC7E885739",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-13 10:00:00 UTC",
+            "post_topic": "พื้นฐานการสร้าง Startup สำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้พื้นฐานผู้ประกอบการ การตรวจสอบไอเดียธุรกิจ และการเริ่มสร้าง Startup แรกของคุณ",
+            "post_tags": "[\"startup\",\"business\",\n\"entrepreneur\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"business\",\"career\"]",
+            "num_click": 13000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 250,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+          "score": 0.534192,
+          "metadata": {
+            "post_id": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 09:00:00 UTC",
+            "post_topic": "เตรียมตัวสัมภาษณ์งานอย่างไรให้พร้อม",
+            "post_content_body": "รวมคำถามสัมภาษณ์งานที่พบบ่อย วิธีตอบ และเทคนิคทำให้โดดเด่นในสายตาผู้สมัครงาน",
+            "post_tags": "[\"Interview\", \"งานสายอาชีพ\", \"งาน\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 25000,
+            "num_like": 1700,
+            "num_comment": 100,
+            "num_share": 700,
+            "num_bookmark": 1500
+          }
+        },
+        {
+          "feedId": "E435C73A-3DBB-4B0F-A1B0-99D92D2186CF",
+          "score": 0.534146,
+          "metadata": {
+            "post_id": "E435C73A-3DBB-4B0F-A1B0-99D92D2186CF",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 12:00:00 UTC",
+            "post_topic": "พื้นฐานการออกแบบวงจรไฟฟ้า",
+            "post_content_body": "เข้าใจอุปกรณ์พื้นฐานในวงจร กฎของโอห์ม และการออกแบบระบบไฟฟ้าเบื้องต้น",
+            "post_tags": "[\"engineering\",\"วงจรไฟฟ้า\",\n\"electrical\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 14000,
+            "num_like": 800,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 650
+          }
+        },
+        {
+          "feedId": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+          "score": 0.53008,
+          "metadata": {
+            "post_id": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 09:00:00 UTC",
+            "post_topic": "เริ่มต้น Python สำหรับมือใหม่",
+            "post_content_body": "เริ่มต้นเส้นทางการเขียนโปรแกรมด้วย Python เรียนรู้ Syntax, Variables และโปรเจกต์ง่าย ๆ",
+            "post_tags": "[\"python\",\"beginner\",\"coding\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 18000,
+            "num_like": 1200,
+            "num_comment": 60,
+            "num_share": 400,
+            "num_bookmark": 900
+          }
+        },
+        {
+          "feedId": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+          "score": 0.511903,
+          "metadata": {
+            "post_id": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-02 09:00:00 UTC",
+            "post_topic": "คู่มือทำพอร์ต AI",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ต AI ด้วยโปรเจกต์จริง เพื่อสร้างความประทับใจให้ผู้สมัครงานและคว้างานแรกให้ได้",
+            "post_tags": "[\"AI\", \"งานสายอาชีพ\", \"portfolio\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\", \"เทคโนโลยี\"]",
+            "num_click": 15000,
+            "num_like": 900,
+            "num_comment": 40,
+            "num_share": 320,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "8C8C3ACF-1DC6-4275-B390-7C9F0EEC6438",
+          "score": 0.50923,
+          "metadata": {
+            "post_id": "8C8C3ACF-1DC6-4275-B390-7C9F0EEC6438",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-04 11:15:00 UTC",
+            "post_topic": "แนวทางออกแบบ API ที่ดี",
+            "post_content_body": "เรียนรู้การออกแบบ API ให้รองรับการขยายระบบ ครอบคลุมหลักการ REST, การทำ Versioning และการปรับแต่งประสิทธิภาพ",
+            "post_tags": "[\"backend\", \"api\", \n\"system_design\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"เทคโนโลยี\", \"skill\"]",
+            "num_click": 9000,
+            "num_like": 500,
+            "num_comment": 20,
+            "num_share": 180,
+            "num_bookmark": 350
+          }
+        },
+        {
+          "feedId": "2C493134-A654-46CF-AAAB-7EC4B41A98B8",
+          "score": 0.509102,
+          "metadata": {
+            "post_id": "2C493134-A654-46CF-AAAB-7EC4B41A98B8",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-05 16:00:00 UTC",
+            "post_topic": "โปรเจกต์ Machine learning สำหรับมือใหม่",
+            "post_content_body": "ไอเดียโปรเจกต์ Machine learning แบบง่ายสำหรับผู้เริ่มต้นด้วย Python ไม่ต้องมีประสบการณ์มาก่อน เหมาะสำหรับนักศึกษาปี 1 ที่เริ่มต้นเส้นทางสาย AI",
+            "post_tags": "[\"machine_learning\", \n\"beginner\", \"python\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 12000,
+            "num_like": 700,
+            "num_comment": 25,
+            "num_share": 200,
+            "num_bookmark": 500
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "71A1D3F7-9BB9-449F-90F7-28E62765860Z",
+    "requestedAtUtc": "2026-05-07T11:57:15.910351+00:00",
+    "completedAtUtc": "2026-05-07T11:57:15.961186+00:00",
+    "latencySeconds": 0.050821,
+    "statusCode": 200,
+    "response": {
+      "studentId": "71A1D3F7-9BB9-449F-90F7-28E62765860Z",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+          "score": 0.632923,
+          "metadata": {
+            "post_id": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 09:00:00 UTC",
+            "post_topic": "เตรียมตัวสัมภาษณ์งานอย่างไรให้พร้อม",
+            "post_content_body": "รวมคำถามสัมภาษณ์งานที่พบบ่อย วิธีตอบ และเทคนิคทำให้โดดเด่นในสายตาผู้สมัครงาน",
+            "post_tags": "[\"Interview\", \"งานสายอาชีพ\", \"งาน\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 25000,
+            "num_like": 1700,
+            "num_comment": 100,
+            "num_share": 700,
+            "num_bookmark": 1500
+          }
+        },
+        {
+          "feedId": "782D007E-2ED4-44FE-8246-EDB189B515FB",
+          "score": 0.625449,
+          "metadata": {
+            "post_id": "782D007E-2ED4-44FE-8246-EDB189B515FB",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-11 14:00:00 UTC",
+            "post_topic": "Roadmap สู่การเป็น data Analyst ปี 2026",
+            "post_content_body": "เส้นทางครบถ้วนสู่การเป็น data Analyst ครอบคลุม SQL, Dashboard และเทคนิคสร้าง portfolio",
+            "post_tags": "[\"data\", \"งานสายอาชีพ\", \"SQL\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 22000,
+            "num_like": 1600,
+            "num_comment": 90,
+            "num_share": 600,
+            "num_bookmark": 1300
+          }
+        },
+        {
+          "feedId": "E32C2C84-0834-4A66-8509-0902B3EE652C",
+          "score": 0.611557,
+          "metadata": {
+            "post_id": "E32C2C84-0834-4A66-8509-0902B3EE652C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 13:00:00 UTC",
+            "post_topic": "ออกแบบระบบให้รองรับการขยายด้วย AWS",
+            "post_content_body": "เรียนรู้การออกแบบระบบ Backend ที่รองรับการขยายตัวด้วย AWS, Microservices และ Cloud Architecture",
+            "post_tags": "[\"aws\",\"system_design\",\"backend\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"เทคโนโลยี\",\"career\"]",
+            "num_click": 17000,
+            "num_like": 1100,
+            "num_comment": 55,
+            "num_share": 350,
+            "num_bookmark": 800
+          }
+        },
+        {
+          "feedId": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+          "score": 0.611481,
+          "metadata": {
+            "post_id": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 09:00:00 UTC",
+            "post_topic": "การบริหารเวลาสำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้วิธีจัดการเวลาอย่างมีประสิทธิภาพ สร้างสมดุลระหว่างการเรียนและชีวิต พร้อมเพิ่ม productivity",
+            "post_tags": "[\"productivity\", \"time management\", \"analysis\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"lifestyle\",\"skill\"]",
+            "num_click": 14000,
+            "num_like": 900,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "8C8C3ACF-1DC6-4275-B390-7C9F0EEC6438",
+          "score": 0.604063,
+          "metadata": {
+            "post_id": "8C8C3ACF-1DC6-4275-B390-7C9F0EEC6438",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-04 11:15:00 UTC",
+            "post_topic": "แนวทางออกแบบ API ที่ดี",
+            "post_content_body": "เรียนรู้การออกแบบ API ให้รองรับการขยายระบบ ครอบคลุมหลักการ REST, การทำ Versioning และการปรับแต่งประสิทธิภาพ",
+            "post_tags": "[\"backend\", \"api\", \n\"system_design\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"เทคโนโลยี\", \"skill\"]",
+            "num_click": 9000,
+            "num_like": 500,
+            "num_comment": 20,
+            "num_share": 180,
+            "num_bookmark": 350
+          }
+        },
+        {
+          "feedId": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+          "score": 0.599415,
+          "metadata": {
+            "post_id": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-02 09:00:00 UTC",
+            "post_topic": "คู่มือทำพอร์ต AI",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ต AI ด้วยโปรเจกต์จริง เพื่อสร้างความประทับใจให้ผู้สมัครงานและคว้างานแรกให้ได้",
+            "post_tags": "[\"AI\", \"งานสายอาชีพ\", \"portfolio\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\", \"เทคโนโลยี\"]",
+            "num_click": 15000,
+            "num_like": 900,
+            "num_comment": 40,
+            "num_share": 320,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "BF0491FD-D028-464C-8CD3-9AB2D7CFC65D",
+          "score": 0.59923,
+          "metadata": {
+            "post_id": "BF0491FD-D028-464C-8CD3-9AB2D7CFC65D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-11 10:30:00 UTC",
+            "post_topic": "สร้างโปรเจกต์ AI แรกของคุณ",
+            "post_content_body": "คู่มือทีละขั้นตอนในการสร้างโปรเจกต์ Machine learning ด้วย Python และชุดข้อมูลจริง\nlearning project using Python and real datasets.",
+            "post_tags": "[\"ai\",\"machine_learning\",\n\"project\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\",\"เทคโนโลยี\"]",
+            "num_click": 20000,
+            "num_like": 1500,
+            "num_comment": 80,
+            "num_share": 500,
+            "num_bookmark": 1200
+          }
+        },
+        {
+          "feedId": "9AEB5F78-B83C-447E-90EA-724F10A21EFD",
+          "score": 0.541016,
+          "metadata": {
+            "post_id": "9AEB5F78-B83C-447E-90EA-724F10A21EFD",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-03 14:30:00 UTC",
+            "post_topic": "เทคนิคเขียนเรซูเม่สาย data science",
+            "post_content_body": "เทคนิคสำคัญในการเขียนเรซูเม่สาย data science ให้โดดเด่น ผ่านการคัดกรอง และได้โอกาสสัมภาษณ์",
+            "post_tags": "[\"ฝึกงาน\", \"data_science\", \n\"resume\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"career\", \"ฝึกงาน\"]",
+            "num_click": 13000,
+            "num_like": 750,
+            "num_comment": 35,
+            "num_share": 250,
+            "num_bookmark": 500
+          }
+        },
+        {
+          "feedId": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+          "score": 0.534754,
+          "metadata": {
+            "post_id": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 09:00:00 UTC",
+            "post_topic": "เริ่มต้น Python สำหรับมือใหม่",
+            "post_content_body": "เริ่มต้นเส้นทางการเขียนโปรแกรมด้วย Python เรียนรู้ Syntax, Variables และโปรเจกต์ง่าย ๆ",
+            "post_tags": "[\"python\",\"beginner\",\"coding\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 18000,
+            "num_like": 1200,
+            "num_comment": 60,
+            "num_share": 400,
+            "num_bookmark": 900
+          }
+        },
+        {
+          "feedId": "2C493134-A654-46CF-AAAB-7EC4B41A98B8",
+          "score": 0.522328,
+          "metadata": {
+            "post_id": "2C493134-A654-46CF-AAAB-7EC4B41A98B8",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-05 16:00:00 UTC",
+            "post_topic": "โปรเจกต์ Machine learning สำหรับมือใหม่",
+            "post_content_body": "ไอเดียโปรเจกต์ Machine learning แบบง่ายสำหรับผู้เริ่มต้นด้วย Python ไม่ต้องมีประสบการณ์มาก่อน เหมาะสำหรับนักศึกษาปี 1 ที่เริ่มต้นเส้นทางสาย AI",
+            "post_tags": "[\"machine_learning\", \n\"beginner\", \"python\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 12000,
+            "num_like": 700,
+            "num_comment": 25,
+            "num_share": 200,
+            "num_bookmark": 500
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "8F9A78FA-0968-4433-9019-24DB33A8CED4",
+    "requestedAtUtc": "2026-05-07T11:57:15.961594+00:00",
+    "completedAtUtc": "2026-05-07T11:57:16.011926+00:00",
+    "latencySeconds": 0.050321,
+    "statusCode": 200,
+    "response": {
+      "studentId": "8F9A78FA-0968-4433-9019-24DB33A8CED4",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "3D561F24-0BBD-4DCD-8038-C26CC376DCA5",
+          "score": 0.610917,
+          "metadata": {
+            "post_id": "3D561F24-0BBD-4DCD-8038-C26CC376DCA5",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 11:00:00 UTC",
+            "post_topic": "เรียนรู้อะไรก็ได้ให้เร็วขึ้น",
+            "post_content_body": "ค้นพบเทคนิคที่พิสูจน์แล้วว่าสามารถช่วยให้เรียนรู้ทักษะใหม่ได้เร็วขึ้น และจดจำความรู้ได้นานขึ้น",
+            "post_tags": "[\"learning\",\"self_improvement\"\n,\"education\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"learning\",\n\"พัฒนาตัวเอง\",\"การศึกษา\"]",
+            "num_click": 15000,
+            "num_like": 1000,
+            "num_comment": 50,
+            "num_share": 320,
+            "num_bookmark": 800
+          }
+        },
+        {
+          "feedId": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+          "score": 0.604968,
+          "metadata": {
+            "post_id": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 09:00:00 UTC",
+            "post_topic": "การบริหารเวลาสำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้วิธีจัดการเวลาอย่างมีประสิทธิภาพ สร้างสมดุลระหว่างการเรียนและชีวิต พร้อมเพิ่ม productivity",
+            "post_tags": "[\"productivity\", \"time management\", \"analysis\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"lifestyle\",\"skill\"]",
+            "num_click": 14000,
+            "num_like": 900,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "E435C73A-3DBB-4B0F-A1B0-99D92D2186CF",
+          "score": 0.591805,
+          "metadata": {
+            "post_id": "E435C73A-3DBB-4B0F-A1B0-99D92D2186CF",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 12:00:00 UTC",
+            "post_topic": "พื้นฐานการออกแบบวงจรไฟฟ้า",
+            "post_content_body": "เข้าใจอุปกรณ์พื้นฐานในวงจร กฎของโอห์ม และการออกแบบระบบไฟฟ้าเบื้องต้น",
+            "post_tags": "[\"engineering\",\"วงจรไฟฟ้า\",\n\"electrical\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 14000,
+            "num_like": 800,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 650
+          }
+        },
+        {
+          "feedId": "66113F20-27FF-4483-A6AD-82EC7E885739",
+          "score": 0.583088,
+          "metadata": {
+            "post_id": "66113F20-27FF-4483-A6AD-82EC7E885739",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-13 10:00:00 UTC",
+            "post_topic": "พื้นฐานการสร้าง Startup สำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้พื้นฐานผู้ประกอบการ การตรวจสอบไอเดียธุรกิจ และการเริ่มสร้าง Startup แรกของคุณ",
+            "post_tags": "[\"startup\",\"business\",\n\"entrepreneur\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"business\",\"career\"]",
+            "num_click": 13000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 250,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "3CDFD62B-B213-4B5C-8127-26185602C540",
+          "score": 0.572943,
+          "metadata": {
+            "post_id": "3CDFD62B-B213-4B5C-8127-26185602C540",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 13:00:00 UTC",
+            "post_topic": "เทคนิคการเรียนอย่างมีประสิทธิภาพสำหรับนักศึกษา",
+            "post_content_body": "พัฒนาความจำ สมาธิ และผลการสอบให้ดีขึ้นด้วยวิธีการเรียนที่พิสูจน์แล้วว่าได้ผล",
+            "post_tags": "[\"analysis\", \"การศึกษา\", \"learning\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 13000,
+            "num_like": 900,
+            "num_comment": 50,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "FE5B8989-F85C-40B6-92E6-19556D14AAAF",
+          "score": 0.55042,
+          "metadata": {
+            "post_id": "FE5B8989-F85C-40B6-92E6-19556D14AAAF",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 14:00:00 UTC",
+            "post_topic": "วิธีวิจัยด้านการเปลี่ยนแปลงสภาพภูมิอากาศ",
+            "post_content_body": "แนะนำการเก็บข้อมูลภาคสนามและเทคนิคการวิเคราะห์สิ่งแวดล้อมเบื้องต้น",
+            "post_tags": "[\"science\",\"environment\",\n\"research\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"science\", \"การศึกษา\"]",
+            "num_click": 9500,
+            "num_like": 600,
+            "num_comment": 30,
+            "num_share": 180,
+            "num_bookmark": 400
+          }
+        },
+        {
+          "feedId": "3A283662-D083-49E1-A61B-07652F28B97B",
+          "score": 0.54305,
+          "metadata": {
+            "post_id": "3A283662-D083-49E1-A61B-07652F28B97B",
+            "post_status": "EXPIRED",
+            "is_valid": false,
+            "post_created_at": "2026-04-06 08:00:00 UTC",
+            "post_topic": "ทุนการศึกษาปี 2026",
+            "post_content_body": "รวมทุนการศึกษาที่เปิดรับ พร้อมกำหนดเวลาและเงื่อนไขการสมัคร",
+            "post_tags": "[\"scholarship\", \"การศึกษา\", \"เรียนต่อต่างประเทศ\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 25000,
+            "num_like": 1400,
+            "num_comment": 70,
+            "num_share": 600,
+            "num_bookmark": 1000
+          }
+        },
+        {
+          "feedId": "401BEA15-5249-4DE5-B83E-B617B91BECC2",
+          "score": 0.535759,
+          "metadata": {
+            "post_id": "401BEA15-5249-4DE5-B83E-B617B91BECC2",
+            "post_status": "EXPIRED",
+            "is_valid": false,
+            "post_created_at": "2026-04-01 08:00:00 UTC",
+            "post_topic": "ทุนเรียนต่อต่างประเทศ 2025",
+            "post_content_body": "รวมทุนเรียนต่อต่างประเทศ พร้อมรายละเอียดการสมัครและกำหนดการ",
+            "post_tags": "[\"scholarship\",\"study_abroad\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"education\"]",
+            "num_click": 30000,
+            "num_like": 2000,
+            "num_comment": 120,
+            "num_share": 900,
+            "num_bookmark": 1800
+          }
+        },
+        {
+          "feedId": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+          "score": 0.529306,
+          "metadata": {
+            "post_id": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 09:00:00 UTC",
+            "post_topic": "เริ่มต้น Python สำหรับมือใหม่",
+            "post_content_body": "เริ่มต้นเส้นทางการเขียนโปรแกรมด้วย Python เรียนรู้ Syntax, Variables และโปรเจกต์ง่าย ๆ",
+            "post_tags": "[\"python\",\"beginner\",\"coding\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 18000,
+            "num_like": 1200,
+            "num_comment": 60,
+            "num_share": 400,
+            "num_bookmark": 900
+          }
+        },
+        {
+          "feedId": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+          "score": 0.511468,
+          "metadata": {
+            "post_id": "1771949B-AA5F-49C7-ADE1-1FF9E4B3479C",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-02 09:00:00 UTC",
+            "post_topic": "คู่มือทำพอร์ต AI",
+            "post_content_body": "เรียนรู้วิธีสร้างพอร์ต AI ด้วยโปรเจกต์จริง เพื่อสร้างความประทับใจให้ผู้สมัครงานและคว้างานแรกให้ได้",
+            "post_tags": "[\"AI\", \"งานสายอาชีพ\", \"portfolio\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\", \"เทคโนโลยี\"]",
+            "num_click": 15000,
+            "num_like": 900,
+            "num_comment": 40,
+            "num_share": 320,
+            "num_bookmark": 600
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "C602CB1F-AF6B-4783-972A-787F41EDC206",
+    "requestedAtUtc": "2026-05-07T11:57:16.012235+00:00",
+    "completedAtUtc": "2026-05-07T11:57:16.062320+00:00",
+    "latencySeconds": 0.050068,
+    "statusCode": 200,
+    "response": {
+      "studentId": "C602CB1F-AF6B-4783-972A-787F41EDC206",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "EDA7D0D2-E61A-49D5-92B1-E78467D5646B",
+          "score": 0.643058,
+          "metadata": {
+            "post_id": "EDA7D0D2-E61A-49D5-92B1-E78467D5646B",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-22 15:00:00 UTC",
+            "post_topic": "วิธีวิเคราะห์คดีทางกฎหมาย",
+            "post_content_body": "คู่มือแบบ Step-by-step สำหรับการอ่านและวิเคราะห์กรณีศึกษาทางกฎหมายอย่างมีประสิทธิภาพ",
+            "post_tags": "[\"law\", \"law\", \"case analysis\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"law\", \"การศึกษา\"]",
+            "num_click": 8500,
+            "num_like": 500,
+            "num_comment": 20,
+            "num_share": 140,
+            "num_bookmark": 300
+          }
+        },
+        {
+          "feedId": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+          "score": 0.608793,
+          "metadata": {
+            "post_id": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 09:00:00 UTC",
+            "post_topic": "การบริหารเวลาสำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้วิธีจัดการเวลาอย่างมีประสิทธิภาพ สร้างสมดุลระหว่างการเรียนและชีวิต พร้อมเพิ่ม productivity",
+            "post_tags": "[\"productivity\", \"time management\", \"analysis\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"lifestyle\",\"skill\"]",
+            "num_click": 14000,
+            "num_like": 900,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "66113F20-27FF-4483-A6AD-82EC7E885739",
+          "score": 0.594364,
+          "metadata": {
+            "post_id": "66113F20-27FF-4483-A6AD-82EC7E885739",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-13 10:00:00 UTC",
+            "post_topic": "พื้นฐานการสร้าง Startup สำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้พื้นฐานผู้ประกอบการ การตรวจสอบไอเดียธุรกิจ และการเริ่มสร้าง Startup แรกของคุณ",
+            "post_tags": "[\"startup\",\"business\",\n\"entrepreneur\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"business\",\"career\"]",
+            "num_click": 13000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 250,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "3CDFD62B-B213-4B5C-8127-26185602C540",
+          "score": 0.58053,
+          "metadata": {
+            "post_id": "3CDFD62B-B213-4B5C-8127-26185602C540",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 13:00:00 UTC",
+            "post_topic": "เทคนิคการเรียนอย่างมีประสิทธิภาพสำหรับนักศึกษา",
+            "post_content_body": "พัฒนาความจำ สมาธิ และผลการสอบให้ดีขึ้นด้วยวิธีการเรียนที่พิสูจน์แล้วว่าได้ผล",
+            "post_tags": "[\"analysis\", \"การศึกษา\", \"learning\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 13000,
+            "num_like": 900,
+            "num_comment": 50,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "E435C73A-3DBB-4B0F-A1B0-99D92D2186CF",
+          "score": 0.576991,
+          "metadata": {
+            "post_id": "E435C73A-3DBB-4B0F-A1B0-99D92D2186CF",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 12:00:00 UTC",
+            "post_topic": "พื้นฐานการออกแบบวงจรไฟฟ้า",
+            "post_content_body": "เข้าใจอุปกรณ์พื้นฐานในวงจร กฎของโอห์ม และการออกแบบระบบไฟฟ้าเบื้องต้น",
+            "post_tags": "[\"engineering\",\"วงจรไฟฟ้า\",\n\"electrical\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 14000,
+            "num_like": 800,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 650
+          }
+        },
+        {
+          "feedId": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+          "score": 0.571137,
+          "metadata": {
+            "post_id": "E0F07D34-D12A-4A00-96E5-D4F487ECEE74",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-22 13:00:00 UTC",
+            "post_topic": "คู่มือเส้นทางอาชีพสายกฎหมายระหว่างประเทศ",
+            "post_content_body": "ทำความเข้าใจเส้นทางอาชีพด้านกฎหมายระหว่างประเทศและองค์กรระดับโลก",
+            "post_tags": "[\"law\", \"งานสายอาชีพ\", \"International\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"law\",\"career\"]",
+            "num_click": 9000,
+            "num_like": 550,
+            "num_comment": 25,
+            "num_share": 160,
+            "num_bookmark": 320
+          }
+        },
+        {
+          "feedId": "5936108A-FF03-4573-B7DE-2611B3DD128E",
+          "score": 0.570272,
+          "metadata": {
+            "post_id": "5936108A-FF03-4573-B7DE-2611B3DD128E",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 11:00:00 UTC",
+            "post_topic": "พื้นฐานการตลาดสำหรับมือใหม่",
+            "post_content_body": "เข้าใจเรื่อง Branding, Positioning และพื้นฐาน Digital Marketing",
+            "post_tags": "[\"marketing\",\"business\",\n\"branding\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"business\",\"การศึกษา\"]",
+            "num_click": 11000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 220,
+            "num_bookmark": 550
+          }
+        },
+        {
+          "feedId": "AFDC106E-A5C9-413B-81AB-139838890A3E",
+          "score": 0.566539,
+          "metadata": {
+            "post_id": "AFDC106E-A5C9-413B-81AB-139838890A3E",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 11:00:00 UTC",
+            "post_topic": "การรับมือลูกค้ายากอย่างมืออาชีพ",
+            "post_content_body": "เทคนิคการจัดการข้อร้องเรียนและยกระดับความพึงพอใจของลูกค้า",
+            "post_tags": "[\"hospitality\",\"customer\",\n\"communication\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"hospitality\",\"skill\"]",
+            "num_click": 11000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 200,
+            "num_bookmark": 500
+          }
+        },
+        {
+          "feedId": "FE5B8989-F85C-40B6-92E6-19556D14AAAF",
+          "score": 0.56305,
+          "metadata": {
+            "post_id": "FE5B8989-F85C-40B6-92E6-19556D14AAAF",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 14:00:00 UTC",
+            "post_topic": "วิธีวิจัยด้านการเปลี่ยนแปลงสภาพภูมิอากาศ",
+            "post_content_body": "แนะนำการเก็บข้อมูลภาคสนามและเทคนิคการวิเคราะห์สิ่งแวดล้อมเบื้องต้น",
+            "post_tags": "[\"science\",\"environment\",\n\"research\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"science\", \"การศึกษา\"]",
+            "num_click": 9500,
+            "num_like": 600,
+            "num_comment": 30,
+            "num_share": 180,
+            "num_bookmark": 400
+          }
+        },
+        {
+          "feedId": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+          "score": 0.539203,
+          "metadata": {
+            "post_id": "DCA8F8FD-1962-45D2-8336-947C522336CE",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-10 09:00:00 UTC",
+            "post_topic": "เริ่มต้น Python สำหรับมือใหม่",
+            "post_content_body": "เริ่มต้นเส้นทางการเขียนโปรแกรมด้วย Python เรียนรู้ Syntax, Variables และโปรเจกต์ง่าย ๆ",
+            "post_tags": "[\"python\",\"beginner\",\"coding\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"skill\"]",
+            "num_click": 18000,
+            "num_like": 1200,
+            "num_comment": 60,
+            "num_share": 400,
+            "num_bookmark": 900
+          }
+        }
+      ]
+    }
+  },
+  {
+    "studentId": "F5968EDE-872F-4C53-B4A4-6DF1F62F6F3C",
+    "requestedAtUtc": "2026-05-07T11:57:16.063133+00:00",
+    "completedAtUtc": "2026-05-07T11:57:16.117524+00:00",
+    "latencySeconds": 0.054372,
+    "statusCode": 200,
+    "response": {
+      "studentId": "F5968EDE-872F-4C53-B4A4-6DF1F62F6F3C",
+      "source": "redis_cache",
+      "category": null,
+      "numRecommendations": 10,
+      "recommendations": [
+        {
+          "feedId": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+          "score": 0.599699,
+          "metadata": {
+            "post_id": "37C40B31-8E2A-40B4-9707-F1CF1C54CFBA",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 09:00:00 UTC",
+            "post_topic": "การบริหารเวลาสำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้วิธีจัดการเวลาอย่างมีประสิทธิภาพ สร้างสมดุลระหว่างการเรียนและชีวิต พร้อมเพิ่ม productivity",
+            "post_tags": "[\"productivity\", \"time management\", \"analysis\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"lifestyle\",\"skill\"]",
+            "num_click": 14000,
+            "num_like": 900,
+            "num_comment": 45,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "3D561F24-0BBD-4DCD-8038-C26CC376DCA5",
+          "score": 0.597525,
+          "metadata": {
+            "post_id": "3D561F24-0BBD-4DCD-8038-C26CC376DCA5",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-28 11:00:00 UTC",
+            "post_topic": "เรียนรู้อะไรก็ได้ให้เร็วขึ้น",
+            "post_content_body": "ค้นพบเทคนิคที่พิสูจน์แล้วว่าสามารถช่วยให้เรียนรู้ทักษะใหม่ได้เร็วขึ้น และจดจำความรู้ได้นานขึ้น",
+            "post_tags": "[\"learning\",\"self_improvement\"\n,\"education\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"learning\",\n\"พัฒนาตัวเอง\",\"การศึกษา\"]",
+            "num_click": 15000,
+            "num_like": 1000,
+            "num_comment": 50,
+            "num_share": 320,
+            "num_bookmark": 800
+          }
+        },
+        {
+          "feedId": "3CDFD62B-B213-4B5C-8127-26185602C540",
+          "score": 0.563985,
+          "metadata": {
+            "post_id": "3CDFD62B-B213-4B5C-8127-26185602C540",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-24 13:00:00 UTC",
+            "post_topic": "เทคนิคการเรียนอย่างมีประสิทธิภาพสำหรับนักศึกษา",
+            "post_content_body": "พัฒนาความจำ สมาธิ และผลการสอบให้ดีขึ้นด้วยวิธีการเรียนที่พิสูจน์แล้วว่าได้ผล",
+            "post_tags": "[\"analysis\", \"การศึกษา\", \"learning\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 13000,
+            "num_like": 900,
+            "num_comment": 50,
+            "num_share": 300,
+            "num_bookmark": 700
+          }
+        },
+        {
+          "feedId": "FE5B8989-F85C-40B6-92E6-19556D14AAAF",
+          "score": 0.549694,
+          "metadata": {
+            "post_id": "FE5B8989-F85C-40B6-92E6-19556D14AAAF",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 14:00:00 UTC",
+            "post_topic": "วิธีวิจัยด้านการเปลี่ยนแปลงสภาพภูมิอากาศ",
+            "post_content_body": "แนะนำการเก็บข้อมูลภาคสนามและเทคนิคการวิเคราะห์สิ่งแวดล้อมเบื้องต้น",
+            "post_tags": "[\"science\",\"environment\",\n\"research\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"science\", \"การศึกษา\"]",
+            "num_click": 9500,
+            "num_like": 600,
+            "num_comment": 30,
+            "num_share": 180,
+            "num_bookmark": 400
+          }
+        },
+        {
+          "feedId": "AFDC106E-A5C9-413B-81AB-139838890A3E",
+          "score": 0.547336,
+          "metadata": {
+            "post_id": "AFDC106E-A5C9-413B-81AB-139838890A3E",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-23 11:00:00 UTC",
+            "post_topic": "การรับมือลูกค้ายากอย่างมืออาชีพ",
+            "post_content_body": "เทคนิคการจัดการข้อร้องเรียนและยกระดับความพึงพอใจของลูกค้า",
+            "post_tags": "[\"hospitality\",\"customer\",\n\"communication\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"hospitality\",\"skill\"]",
+            "num_click": 11000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 200,
+            "num_bookmark": 500
+          }
+        },
+        {
+          "feedId": "3A283662-D083-49E1-A61B-07652F28B97B",
+          "score": 0.542815,
+          "metadata": {
+            "post_id": "3A283662-D083-49E1-A61B-07652F28B97B",
+            "post_status": "EXPIRED",
+            "is_valid": false,
+            "post_created_at": "2026-04-06 08:00:00 UTC",
+            "post_topic": "ทุนการศึกษาปี 2026",
+            "post_content_body": "รวมทุนการศึกษาที่เปิดรับ พร้อมกำหนดเวลาและเงื่อนไขการสมัคร",
+            "post_tags": "[\"scholarship\", \"การศึกษา\", \"เรียนต่อต่างประเทศ\"]",
+            "post_target_group": "everyone",
+            "post_category": "[\"การศึกษา\"]",
+            "num_click": 25000,
+            "num_like": 1400,
+            "num_comment": 70,
+            "num_share": 600,
+            "num_bookmark": 1000
+          }
+        },
+        {
+          "feedId": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+          "score": 0.52969,
+          "metadata": {
+            "post_id": "ED129F59-8DB6-4E81-A01B-C5FCE6229E2D",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-12 09:00:00 UTC",
+            "post_topic": "เตรียมตัวสัมภาษณ์งานอย่างไรให้พร้อม",
+            "post_content_body": "รวมคำถามสัมภาษณ์งานที่พบบ่อย วิธีตอบ และเทคนิคทำให้โดดเด่นในสายตาผู้สมัครงาน",
+            "post_tags": "[\"Interview\", \"งานสายอาชีพ\", \"งาน\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 25000,
+            "num_like": 1700,
+            "num_comment": 100,
+            "num_share": 700,
+            "num_bookmark": 1500
+          }
+        },
+        {
+          "feedId": "66113F20-27FF-4483-A6AD-82EC7E885739",
+          "score": 0.526056,
+          "metadata": {
+            "post_id": "66113F20-27FF-4483-A6AD-82EC7E885739",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-13 10:00:00 UTC",
+            "post_topic": "พื้นฐานการสร้าง Startup สำหรับนักศึกษา",
+            "post_content_body": "เรียนรู้พื้นฐานผู้ประกอบการ การตรวจสอบไอเดียธุรกิจ และการเริ่มสร้าง Startup แรกของคุณ",
+            "post_tags": "[\"startup\",\"business\",\n\"entrepreneur\"]",
+            "post_target_group": "year2",
+            "post_category": "[\"business\",\"career\"]",
+            "num_click": 13000,
+            "num_like": 700,
+            "num_comment": 40,
+            "num_share": 250,
+            "num_bookmark": 600
+          }
+        },
+        {
+          "feedId": "782D007E-2ED4-44FE-8246-EDB189B515FB",
+          "score": 0.525192,
+          "metadata": {
+            "post_id": "782D007E-2ED4-44FE-8246-EDB189B515FB",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-11 14:00:00 UTC",
+            "post_topic": "Roadmap สู่การเป็น data Analyst ปี 2026",
+            "post_content_body": "เส้นทางครบถ้วนสู่การเป็น data Analyst ครอบคลุม SQL, Dashboard และเทคนิคสร้าง portfolio",
+            "post_tags": "[\"data\", \"งานสายอาชีพ\", \"SQL\"]",
+            "post_target_group": "year3+",
+            "post_category": "[\"career\"]",
+            "num_click": 22000,
+            "num_like": 1600,
+            "num_comment": 90,
+            "num_share": 600,
+            "num_bookmark": 1300
+          }
+        },
+        {
+          "feedId": "5630C496-7269-4F60-9F69-84F6FF03298A",
+          "score": 0.516887,
+          "metadata": {
+            "post_id": "5630C496-7269-4F60-9F69-84F6FF03298A",
+            "post_status": "PUBLISHED",
+            "is_valid": true,
+            "post_created_at": "2026-04-13 15:00:00 UTC",
+            "post_topic": "เทคนิคการแสดงดนตรี",
+            "post_content_body": "พัฒนาทักษะการแสดงบนเวทีและเพิ่มความมั่นใจในฐานะนักดนตรี",
+            "post_tags": "[\"music\",\"performance\",\"art\"]",
+            "post_target_group": "year1",
+            "post_category": "[\"การศึกษา\", \"lifestyle\"]",
+            "num_click": 9000,
+            "num_like": 500,
+            "num_comment": 30,
+            "num_share": 150,
+            "num_bookmark": 300
+          }
+        }
+      ]
+    }
+  }
+]

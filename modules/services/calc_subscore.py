@@ -792,6 +792,7 @@ def score_recency(
         now_utc: datetime,
         half_life_days: float = 30.0
 ) -> float:
+    print(f"feed_meta : {feed_meta}") if verbose else None
     for key in ("post_created_at","published_at","created_at"):
         dt = _parse_ts_any(feed_meta.get(key))
         print(dt)  if verbose else None
