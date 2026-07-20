@@ -6,7 +6,7 @@ from redis.exceptions import ConnectionError as RedisConnectionError
 from redis.exceptions import TimeoutError as RedisTimeoutError
 
 
-verbose = 0
+verbose = 1
 class RedisCache:
 
 # ---------------------------------------------------------------------------------------------

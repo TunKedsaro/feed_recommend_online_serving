@@ -16,8 +16,10 @@ hyde_data:
   metadata_prefix: metadata
 
 vertex:
-  index_endpoint: "projects/810737581373/locations/asia-southeast1/indexEndpoints/5469929610697244672"
-  deployed_index_id: "recommend_feeds_items_deployed"
+  index_endpoint: "projects/810737581373/locations/asia-southeast1/indexEndpoints/4778838174128406528"
+  deployed_index_id: "test_feeds_items_deployed"
+  # index_endpoint: "projects/810737581373/locations/asia-southeast1/indexEndpoints/5469929610697244672"
+  # deployed_index_id: "recommend_feeds_items_deployed"
   # index_endpoint: "projects/810737581373/locations/asia-southeast1/indexEndpoints/6458557689835290624"
   # deployed_index_id: "feeds_20k_4replicas_deployed"
   neighbor_count: 50

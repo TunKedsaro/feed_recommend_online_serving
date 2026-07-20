@@ -6,7 +6,7 @@ from modules.services.calc_subscore import RerankItem
 from modules.services.recommend_with_subscore import rerank_with_subscore
 from modules.functions.vector_search import VectorSearchClient
 
-verbose = 0
+verbose = 1
 
 # ---------------------------------------------------------------------------------------------
 # perform async vector_search () for all embeddings; if async fails, do synchronous search

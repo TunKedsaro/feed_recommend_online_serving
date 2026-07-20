@@ -14,7 +14,7 @@ from dataclasses import dataclass
 import pandas as pd
 import ast
 
-verbose = 0
+verbose = 1
 # ----------------------------------------------------------------------
 # schema
 # ----------------------------------------------------------------------

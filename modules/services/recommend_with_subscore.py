@@ -6,7 +6,7 @@ from api.schema import FeedsMetadata, FeedsRecommendation
 from modules.functions.hyde_embedding import HydeEmbeddingStore
 from modules.services.calc_subscore import RerankItem, calc_subscore
 
-verbose = 0
+verbose = 1
 
 # ---------------------------------------------------------------------------------------------
 # Compute reranked feed candidates by combining vector-search scores with subscore logic

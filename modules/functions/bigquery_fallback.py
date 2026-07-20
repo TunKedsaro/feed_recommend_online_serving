@@ -5,7 +5,7 @@ from google.cloud import bigquery
 from api.schema import FeedsMetadata
 from modules.utils.bigquery import query_sql
 
-verbose = 0
+verbose = 1
 # ---------------------------------------------------------------------------------------------
 # bigquery - fallback
 # ---------------------------------------------------------------------------------------------

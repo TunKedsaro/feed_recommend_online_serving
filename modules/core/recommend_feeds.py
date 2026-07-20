@@ -73,7 +73,7 @@ class RecommendationService:
     def __init__(self, settings: Settings) -> None:
         """Initialize the recommendation service with necessary clients and configurations."""
         self.settings = settings
-        self.verbose = 0
+        self.verbose = 1
 
         self.redis_cache = RedisCache(
             host=self.settings.cache.redis_host,

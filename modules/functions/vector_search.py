@@ -3,7 +3,7 @@ from typing import Any
 from google.api_core.exceptions import NotFound
 from google.cloud import aiplatform
 
-verbose = 0 
+verbose = 1
 
 def _parse_project_and_region(index_endpoint: str) -> tuple[str, str]:
     """
