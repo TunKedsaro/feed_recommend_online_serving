@@ -21,14 +21,13 @@ app = FastAPI(
     description=(
         "Feed recommendation Online serving part"
         "<br>"
-        f"Last time Update : 2026-04-18 15:58"
+        f"Last time Update : 21/07/26 11:08"
         "<br>"
         "Repo : https://github.com/TunKedsaro/feed_recommend_online_serving"
     ),
     contact={
         "name": "Tun Kedsaro",
         "email": "tun.k@terradigitalventures.com",
-        
     },
 )
 
