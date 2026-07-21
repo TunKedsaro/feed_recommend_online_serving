@@ -30,14 +30,13 @@ vertex:
   #     - "university"
 
 bigquery:
-  fallback_table: "poc-piloturl-nonprod.mock_feed_recommendation_th.silver_feed_community"
-  # fallback_table: "poc-piloturl-nonprod.gold_layer.feeds_20k"
+  fallback_table: "poc-piloturl-nonprod.mock_feed_recommendation.silver_feed_community"
   fallback_limit: 28
 
 trigger_hyde_generation:
   http_timeout_seconds: 60
   refresh_cooldown_seconds: 300
-  recommendation_api_base_url: "https://hyderecomment-service-du7yhkyaqq-as.a.run.app"
+  recommendation_api_base_url: "https://hyde-api-810737581373.asia-southeast1.run.app"
   recommendation_path: "/hyde/students/{student_id}"
 
 recommendation:
